@@ -72,6 +72,12 @@
                                 </ul>
                             </li>
                             <li class="scroll-to-section"><a href="#explore">Explore</a></li>
+                            <li>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" style="background:none;border:none;color:inherit;cursor:pointer;padding:0;">Logout</button>
+                                </form>
+                            </li>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -946,7 +952,7 @@
                     <h4>Talent &amp; Categories</h4>
                     <ul>
                         <li><a href="#">Penyanyi</a></li>
-                        <li><a href="#">MC</a></li>
+                            
                         <li><a href="#">Komika</a></li>
                         <li><a href="#">Badut</a></li>
 
