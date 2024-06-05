@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Auidens;
+use App\Models\Audiens;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -23,7 +23,7 @@ class RegisterController extends Controller
         $user = $this->createUser($request->all());
 
         // Create the corresponding record in the audiens table
-        $this->createAuidens($request->all());
+        $this->createAudiens($request->all());
 
         return redirect()->route('login')->with('status', 'Registration successful! Please verify your email.');
     }
@@ -47,9 +47,9 @@ class RegisterController extends Controller
         ]);
     }
 
-    protected function createAuidens(array $data)
+    protected function createAudiens(array $data)
     {
-        return Auidens::create([
+        return Audiens::create([
             'username' => $data['name'],
             'noHP' => $data['phone'],
             'email' => $data['email'],
