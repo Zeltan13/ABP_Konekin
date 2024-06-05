@@ -51,10 +51,10 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#men">MC</a></li>
-                            <li class="scroll-to-section"><a href="#women">Penyanyi</a></li>
-                            <li class="scroll-to-section"><a href="#kids">Komika</a></li>
+                            <li><a href="{{ route('home') }}" class="active">Home</a></li>
+                            <li><a href="{{ route('forum') }}">Forum</a></li>
+                            <li><a href="{{ route('profile') }}">Profile</a></li>
+                            <!-- <li class="scroll-to-section"><a href="#kids">Komika</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">More</a>
                                 <ul>
@@ -71,7 +71,7 @@
                                     <li><a href="komplain.html">Komplain</a></li>
                                 </ul>
                             </li>
-                            <li class="scroll-to-section"><a href="#explore">Explore</a></li>
+                            <li class="scroll-to-section"><a href="#explore">Explore</a></li> -->
                             <li>
                                 <form action="{{ route('logout') }}" method="POST">
                                     @csrf
