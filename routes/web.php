@@ -6,6 +6,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CourseController;
 
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
@@ -27,3 +28,9 @@ Route::middleware('auth')->group(function() {
     Route::post('/profile/change-password', [ProfileController::class, 'changePassword'])->name('profile.change-password.update');
     // Add routes for "Switch to Creator" and "Help" if needed
 });
+
+Route::post('/course/buy', [CourseController::class, 'buy'])->name('course.buy');
+Route::get('/course/{course}/payment', [CourseController::class, 'payment'])->name('payment');
+Route::post('/course/{course}/pay', [CourseController::class, 'pay'])->name('course.pay');
+Route::get('/course/{course}/success', [CourseController::class, 'success'])->name('success');
+Route::get('/course/{course}/watch', [CourseController::class, 'watch'])->name('watch');
