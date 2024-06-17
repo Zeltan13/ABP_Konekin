@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Lato', Arial, sans-serif;
             background-color: #f5f5f5;
+            margin: 0;
         }
         .container {
             max-width: 1200px;
@@ -17,15 +19,36 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: white;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            background-color: #122F77;
+            border-radius: 10px;
+            padding: 10px 20px;
+        }
+        .logo h1 {
+            color: white;
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
         .nav {
             list-style: none;
             padding: 0;
-            margin: 20px 0;
+            margin: 0;
             display: flex;
-            justify-content: space-around;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+        }
+        .nav li {
+            margin-left: 20px;
         }
         .nav a {
             text-decoration: none;
@@ -74,11 +97,26 @@
     </style>
 </head>
 <body>
-    <ul class="nav">
-        <li><a href="{{ route('home') }}" class="active">Home</a></li>
-        <li><a href="{{ route('forum') }}">Forum</a></li>
-        <li><a href="{{ route('profile') }}">Profile</a></li>
-    </ul>
+    <div class="header">
+        <div class="logo">
+            <h1>Konekin</h1>
+        </div>
+        <ul class="nav">
+            <li>
+                <img src="{{ asset('public\assets\images\Home Icon.png') }}" alt="Home"> 
+                <a href="{{ route('home') }}" class="active">Home</a>
+            </li>
+            <li>
+                <img src="{{ asset('public\assets\images\Forum Icon.png') }}" alt="Forum"> 
+                <a href="{{ route('forum') }}">Forum</a>
+            </li>
+            <li>
+                <img src="{{ asset('public\assets\images\Profile Icon.png') }}" alt="Profile"> 
+                <a href="{{ route('profile') }}">Profile</a>
+            </li>
+        </ul>
+
+    </div>
     <div class="container">
         @foreach($courses as $category => $categoryCourses)
         <div class="category">
