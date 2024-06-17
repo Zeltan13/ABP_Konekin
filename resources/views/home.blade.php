@@ -11,10 +11,13 @@
             background: linear-gradient(180deg, #022C99, #8BACFF);
             margin: 0;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 20px;
             background-color: white;
             padding: 20px;
             border-radius: 8px;
@@ -27,7 +30,7 @@
             padding: 20px;
             background-color: white;
             border-bottom: 1px solid #ddd;
-            margin-bottom: 20px;
+            width: 100%;
         }
         .logo {
             display: flex;
@@ -58,8 +61,12 @@
         .nav a {
             text-decoration: none;
             padding: 10px;
-            display: block;
+            display: flex;
+            align-items: center;
             color: #000;
+        }
+        .nav a img {
+            margin-right: 8px;
         }
         .nav a.active {
             color: #007bff;
@@ -102,24 +109,24 @@
         .main-content {
             display: flex;
             justify-content: center;
+            width: 100%;
         }
-
         .profile-container {
-            width: 200px; /* Adjust width as needed */
+            width: 200px;
             padding: 20px;
-            margin-right: 10px; /* Space between profile and main container */
-            margin-left: 10px; /* Space from the left side of the screen */
+            margin-right: 10px;
+            margin-left: 10px; 
+            margin-top: 20px;
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
-
         .profile-picture {
-            width: 100%; /* Adjust size as needed */
-            border-radius: 50%; /* Makes the image round */
+            width: 100%; 
+            border-radius: 50%;
             margin-bottom: 10px;
         }
-
     </style>
 </head>
 <body>
@@ -127,52 +134,53 @@
         <div class="logo">
             <h1>Konekin</h1>
         </div>
-
         <ul class="nav">
             <li>
-                <img src="{{ asset('assets/images/Home Icon.png') }}" alt="Home" width="24" height="24"> 
-                <a href="{{ route('home') }}" class="active">Home</a>
+                <a href="{{ route('home') }}" class="active">
+                    <img src="{{ asset('assets/images/Home Icon.png') }}" alt="Home" width="24" height="24">
+                    Home
+                </a>
             </li>
             <li>
-                <img src="{{ asset('assets/images/Forum Icon.png') }}" alt="Forum" width="24" height="24"> 
-                <a href="{{ route('forum') }}">Forum</a>
+                <a href="{{ route('forum') }}">
+                    <img src="{{ asset('assets/images/Forum Icon.png') }}" alt="Forum" width="24" height="24">
+                    Forum
+                </a>
             </li>
             <li>
-                <img src="{{ asset('assets/images/Profile Icon.png') }}" alt="Profile" width="24" height="24"> 
-                <a href="{{ route('profile') }}">Profile</a>
+                <a href="{{ route('profile') }}">
+                    <img src="{{ asset('assets/images/Profile Icon.png') }}" alt="Profile" width="24" height="24">
+                    Profile
+                </a>
             </li>
         </ul>
     </div>
-    
     <div class="main-content">
-    <div class="profile-container">
+        <div class="profile-container">
             <img src="{{ asset('assets/images/ProfilePic.jpg') }}" alt="Profile Picture" class="profile-picture">
             <p>Hello, {{ Auth::user()->name }}!</p>
             <p>Let’s find the best consultant with us!</p>
         </div>
         <div class="container">
-        @foreach($courses as $category => $categoryCourses)
-        <div class="category">
-            <h2>{{ $category }}</h2>
-            @foreach($categoryCourses as $course)
-            <div class="course">
-                <img src="{{ $course['image'] }}" alt="{{ $course['title'] }}">
-                <div class="course-details">
-                    <h3>{{ $course['title'] }}</h3>
-                    <div class="price">Rp{{ number_format($course['price'], 0, ',', '.') }}</div>
-                    <form action="{{ route('course.buy', ['course' => $course['title']]) }}" method="POST">
-                        @csrf
-                        <button type="submit">Buy Now</button>
-                    </form>
+            @foreach($courses as $category => $categoryCourses)
+            <div class="category">
+                <h2>{{ $category }}</h2>
+                @foreach($categoryCourses as $course)
+                <div class="course">
+                    <img src="{{ $course['image'] }}" alt="{{ $course['title'] }}">
+                    <div class="course-details">
+                        <h3>{{ $course['title'] }}</h3>
+                        <div class="price">Rp{{ number_format($course['price'], 0, ',', '.') }}</div>
+                        <form action="{{ route('course.buy', ['course' => $course['title']]) }}" method="POST">
+                            @csrf
+                            <button type="submit">Buy Now</button>
+                        </form>
+                    </div>
                 </div>
+                @endforeach
             </div>
             @endforeach
         </div>
-        @endforeach
     </div>
-    </div>
-
-    
-    
 </body>
 </html>
