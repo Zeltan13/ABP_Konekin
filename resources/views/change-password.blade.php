@@ -56,8 +56,13 @@
         .form-group input:not(:placeholder-shown) + label {
             top: -10px;
             left: 10px;
-            font-size: 12px;
+            font-size: 16px;
             color: #022C99;
+        }
+        .form-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Adds space between the buttons */
         }
         button {
             padding: 10px;
@@ -67,10 +72,25 @@
             border-radius: 5px;
             cursor: pointer;
             font-family: 'Lato', Arial, sans-serif;
-            
+            height: 40px; /* Ensuring both buttons have the same height */
+            font-size: 16px; /* Setting font size to 12px */
         }
         button:hover {
             background-color: #021A66;
+        }
+        .back-button {
+            padding: 10px;
+            background-color: #f44336;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            font-family: 'Lato', Arial, sans-serif;
+            display: inline-block;
+            font-size: 16px; /* Setting font size to 12px */
+        }
+        .back-button:hover {
+            background-color: #d32f2f;
         }
         a {
             display: block;
@@ -89,58 +109,26 @@
             margin-bottom: 20px;
             padding: 10px;
             border-radius: 5px;
-            font-family: 'Lato', Arial, sans-serif;
         }
         .error-messages ul {
             margin: 0;
             padding: 0;
             list-style-type: none;
-            font-family: 'Lato', Arial, sans-serif;
         }
-        .form-buttons {
-            display: flex;
-            justify-content: center; /* Centers buttons */
-            gap: 10px; /* Adds space between the buttons */
-            flex: 1;
-            
-        }
-
-        button, .back-button {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            flex: 1; /* Makes buttons grow equally */
-            font-family: 'Lato', Arial, sans-serif;
-
-        }
-
-        button {
-            background-color: #022C99;
-            color: white;
-        }
-
-        button:hover {
-            background-color: #021A66;
-        }
-
-        .back-button {
-            background-color: #ff4b4b; /* Red color */
-            color: white;
-        }
-
-        .back-button:hover {
-            background-color: #cc0000; /* Darker red on hover */
-        }
-
-
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Change Password</h1>
+        @if ($errors->any())
+            <div class="error-messages">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form action="{{ route('profile.change-password.update') }}" method="POST">
             @csrf
             <div class="form-group">
