@@ -8,8 +8,9 @@
     <style>
         body {
             font-family: 'Lato', Arial, sans-serif;
-            background-color: #f5f5f5;
+            background: linear-gradient(180deg, #022C99, #8BACFF);
             margin: 0;
+            min-height: 100vh;
         }
         .container {
             max-width: 1200px;
@@ -48,6 +49,10 @@
             display: flex;
         }
         .nav li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             margin-left: 20px;
         }
         .nav a {
@@ -94,6 +99,27 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        .main-content {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-container {
+            width: 200px; /* Adjust width as needed */
+            padding: 20px;
+            margin-right: 10px; /* Space between profile and main container */
+            margin-left: 10px; /* Space from the left side of the screen */
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-picture {
+            width: 100%; /* Adjust size as needed */
+            border-radius: 50%; /* Makes the image round */
+            margin-bottom: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -101,23 +127,33 @@
         <div class="logo">
             <h1>Konekin</h1>
         </div>
+
         <ul class="nav">
             <li>
-                <img src="{{ asset('public\assets\images\Home Icon.png') }}" alt="Home"> 
+                <img src="{{ asset('assets/images/Home Icon.png') }}" alt="Home" width="24" height="24"> 
                 <a href="{{ route('home') }}" class="active">Home</a>
             </li>
             <li>
-                <img src="{{ asset('public\assets\images\Forum Icon.png') }}" alt="Forum"> 
+                <img src="{{ asset('assets/images/Forum Icon.png') }}" alt="Forum" width="24" height="24"> 
                 <a href="{{ route('forum') }}">Forum</a>
             </li>
             <li>
-                <img src="{{ asset('public\assets\images\Profile Icon.png') }}" alt="Profile"> 
+                <img src="{{ asset('assets/images/Profile Icon.png') }}" alt="Profile" width="24" height="24"> 
                 <a href="{{ route('profile') }}">Profile</a>
             </li>
         </ul>
 
+
+
     </div>
-    <div class="container">
+    
+    <div class="main-content">
+        <div class="profile-container">
+            <img src="{{ asset('path/to/profile-picture.jpg') }}" alt="Profile Picture" class="profile-picture">
+            <p>Hello, Vivian!</p>
+            <p>Let’s find the best consultant with us!</p>
+        </div>
+        <div class="container">
         @foreach($courses as $category => $categoryCourses)
         <div class="category">
             <h2>{{ $category }}</h2>
@@ -137,5 +173,9 @@
         </div>
         @endforeach
     </div>
+    </div>
+
+    
+    
 </body>
 </html>
