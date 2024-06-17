@@ -4,23 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Add your CSS styles here */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            font-family: 'Lato', Arial, sans-serif;
+            background: linear-gradient(180deg, #022C99, #8BACFF);
+            margin: 0;
+            min-height: 100vh;
         }
         .container {
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 750px;
+            margin: 20px auto;
             background-color: white;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            font-family: 'Lato', Arial, sans-serif;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: white;
+            border-bottom: 1px solid #ddd;
+            width: 100%;
+            font-family: 'Lato', Arial, sans-serif;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            background-color: #122F77;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-family: 'Lato', Arial, sans-serif;
+        }
+        .logo h1 {
+            color: white;
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Lato', Arial, sans-serif;
+        }
+        .nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            font-family: 'Lato', Arial, sans-serif;
+        }
+        .nav li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-left: 20px;
+            font-family: 'Lato', Arial, sans-serif;
+        }
+        .nav a {
+            text-decoration: none;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            color: #000;
+            font-family: 'Lato', Arial, sans-serif;
+        }
+        .nav a img {
+            margin-right: 8px;
+        }
+        .nav a.active {
+            color: #007bff;
         }
         .profile-header {
             text-align: center;
+            font-family: 'Lato', Arial, sans-serif;
         }
         .profile-header img {
             border-radius: 50%;
@@ -29,29 +87,12 @@
         }
         .profile-header h2 {
             margin-top: 10px;
-        }
-        .nav {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-            display: flex;
-            justify-content: space-around;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
-        .nav a {
-            text-decoration: none;
-            padding: 10px;
-            display: block;
-            color: #000;
-        }
-        .nav a.active {
-            color: #007bff;
+            font-family: 'Lato', Arial, sans-serif;
         }
         .settings {
             text-align: left;
             margin-top: 20px;
+            font-family: 'Lato', Arial, sans-serif;
         }
         .settings a {
             display: block;
@@ -59,6 +100,7 @@
             border-bottom: 1px solid #ddd;
             text-decoration: none;
             color: #000;
+            font-family: 'Lato', Arial, sans-serif;
         }
         .settings a:last-child {
             border-bottom: none;
@@ -68,15 +110,39 @@
         }
         .logout-form {
             display: inline;
+            font-family: 'Lato', Arial, sans-serif;
+        }
+        .logout-form button {
+            font-family: 'Lato', Arial, sans-serif;
         }
     </style>
 </head>
 <body>
-    <ul class="nav">
-        <li><a href="{{ route('home') }}">Home</a></li>
-        <li><a href="{{ route('forum') }}">Forum</a></li>
-        <li><a href="{{ route('profile') }}" class="active">Profile</a></li>
-    </ul>
+    <div class="header">
+        <div class="logo">
+            <h1>Konekin</h1>
+        </div>
+        <ul class="nav">
+            <li>
+                <a href="{{ route('home') }}" class="active">
+                    <img src="{{ asset('assets/images/Home Icon.png') }}" alt="Home" width="24" height="24">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('forum') }}">
+                    <img src="{{ asset('assets/images/Forum Icon.png') }}" alt="Forum" width="24" height="24">
+                    Forum
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('profile') }}">
+                    <img src="{{ asset('assets/images/Profile Icon.png') }}" alt="Profile" width="24" height="24">
+                    Profile
+                </a>
+            </li>
+        </ul>
+    </div>
     <div class="container">
         <div class="profile-header">
             <img src="https://via.placeholder.com/100" alt="Profile Picture">
