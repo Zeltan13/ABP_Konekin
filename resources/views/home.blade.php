@@ -148,9 +148,9 @@
     </div>
     
     <div class="main-content">
-        <div class="profile-container">
-            <img src="{{ asset('path/to/profile-picture.jpg') }}" alt="Profile Picture" class="profile-picture">
-            <p>Hello, Vivian!</p>
+    <div class="profile-container">
+            <img src="{{ asset('assets/images/ProfilePic.jpg') }}" alt="Profile Picture" class="profile-picture">
+            <p>Hello, Dhafindra!</p>
             <p>Let’s find the best consultant with us!</p>
         </div>
         <div class="container">

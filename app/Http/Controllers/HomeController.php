@@ -16,9 +16,13 @@ class HomeController extends Controller
                 ['title' => 'Your Tattoo is INSIDE Your Immune System', 'price' => 799000, 'image' => 'path_to_image3'],
                 ['title' => 'The SMALLEST to the LARGEST Thing in the Universe', 'price' => 799000, 'image' => 'path_to_image4']
             ],
-            // Add other categories similarly...
         ];
 
+        if (auth()->check()) {
+            $userName = auth()->user()->name; // Get the currently authenticated user's name
+        } else {
+            $userName = 'Guest'; // Default name if no user is authenticated
+        }
         return view('home', compact('courses'));
     }
 }
