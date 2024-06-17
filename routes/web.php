@@ -34,3 +34,6 @@ Route::get('/course/{course}/payment', [CourseController::class, 'payment'])->na
 Route::post('/course/{course}/pay', [CourseController::class, 'pay'])->name('course.pay');
 Route::get('/course/{course}/success', [CourseController::class, 'success'])->name('success');
 Route::get('/course/{course}/watch', [CourseController::class, 'watch'])->name('watch');
+
+Route::get('/forum', [ForumController::class, 'index'])->name('forum');
+Route::get('/watch/{course}', [HomeController::class, 'watch'])->name('watch');

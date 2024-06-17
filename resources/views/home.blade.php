@@ -17,6 +17,25 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+        .nav {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-around;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .nav a {
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            color: #000;
+        }
+        .nav a.active {
+            color: #007bff;
+        }
         .category {
             margin-bottom: 40px;
         }
@@ -56,9 +75,9 @@
 </head>
 <body>
     <ul class="nav">
-        <li><a href="{{ route('home') }}">Home</a></li>
+        <li><a href="{{ route('home') }}" class="active">Home</a></li>
         <li><a href="{{ route('forum') }}">Forum</a></li>
-        <li><a href="{{ route('profile') }}" class="active">Profile</a></li>
+        <li><a href="{{ route('profile') }}">Profile</a></li>
     </ul>
     <div class="container">
         @foreach($courses as $category => $categoryCourses)
