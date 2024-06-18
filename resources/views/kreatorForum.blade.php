@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forum Kreator</title>
+    <title>Forum</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -16,7 +16,7 @@
             align-items: center;
         }
         .container {
-            max-width: 1200px; /* Increase max-width for wider container */
+            max-width: 1200px;
             margin: 20px;
             background-color: white;
             padding: 20px;
@@ -80,7 +80,7 @@
         }
         .profile-container {
             width: 200px;
-            height:320px;
+            height: 320px;
             padding: 20px;
             margin-right: 10px;
             margin-left: 10px; 
@@ -91,11 +91,9 @@
             text-align: center;
         }
         .profile-picture {
+            width: 100%; 
             border-radius: 50%;
             margin-bottom: 10px;
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
         }
         .forum-categories {
             display: grid;
@@ -126,26 +124,6 @@
         .forum-category .details h3 {
             margin: 0;
         }
-        .floating-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-        .floating-button:hover {
-            background-color: #0056b3;
-        }
     </style>
 </head>
 <body>
@@ -156,19 +134,19 @@
         <ul class="nav">
             <li>
                 <a href="{{ route('kreator.home') }}">
-                    <img src="assets/images/Home Icon.png" alt="Home Icon" width="24" height="24">
+                    <img src="{{ asset('assets/images/Home Icon.png') }}" alt="Home" width="24" height="24">
                     Home
                 </a>
             </li>
             <li>
                 <a href="{{ route('kreator.forum') }}" class="active">
-                    <img src="assets/images/Forum Icon.png" alt="Forum Icon" width="24" height="24">
+                    <img src="{{ asset('assets/images/Forum Icon.png') }}" alt="Forum" width="24" height="24">
                     Forum
                 </a>
             </li>
             <li>
                 <a href="{{ route('kreator.profile') }}">
-                    <img src="assets/images/Profile Icon.png" alt="Profile Icon" width="24" height="24">
+                    <img src="{{ asset('assets/images/Profile Icon.png') }}" alt="Profile" width="24" height="24">
                     Profile
                 </a>
             </li>
@@ -177,26 +155,24 @@
     <div class="main-content">
         <div class="profile-container">
             <img src="{{ $profileImage }}" alt="Profile Picture" class="profile-picture">
-            <h2>Creator Profile</h2>
             <p>Hello, {{ Auth::user()->name }}!</p>
-            <p>Let's be the best consultant with us!</p>
+            <p>Let’s find the best consultant with us!</p>
         </div>
         <div class="container">
             <h1>Forum</h1>
             <div class="forum-categories">
-                @foreach($forums as $forum)
-                    <a href="{{ $forum['link'] }}" target="_blank" class="forum-category">
-                        <img src="{{ $forum['image'] }}" alt="{{ $forum['name'] }}">
-                        <div class="details">
-                            <h3>{{ $forum['name'] }}</h3>
-                        </div>
-                    </a>
+                @foreach ($forums as $forum)
+                    <div class="forum-category">
+                        <a href="{{ $forum['link'] }}" target="_blank">
+                            <img src="{{ asset($forum['image']) }}" alt="{{ $forum['name'] }}">
+                            <div class="details">
+                                <h3>{{ $forum['name'] }}</h3>
+                            </div>
+                        </a>
+                    </div>
                 @endforeach
             </div>
         </div>
     </div>
-    <button class="floating-button" onclick="window.location.href='{{ route('kreator.create') }}'">
-        +
-    </button>
 </body>
 </html>

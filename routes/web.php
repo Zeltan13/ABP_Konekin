@@ -35,6 +35,9 @@ Route::middleware('auth')->group(function() {
     //kreator things
     Route::get('/kreator/create', [KreatorController::class, 'create'])->name('kreator.create');
     Route::post('/kreator/store', [KreatorController::class, 'store'])->name('kreator.store');
+    Route::get('/kreator', [KreatorController::class, 'showKreatorPage'])->name('kreator.home');
+    Route::get('/kreator/forum', [KreatorController::class, 'index'])->name('kreator.forum');
+    Route::get('/kreator/profile', [KreatorController::class, 'kreatorProfile'])->name('kreator.profile');
 });
 
 Route::prefix('course')->group(function() {
@@ -46,9 +49,7 @@ Route::prefix('course')->group(function() {
     Route::get('/{course}/watch', [CourseController::class, 'watch'])->name('watch');
 });
 
-Route::get('/kreator', [KreatorController::class, 'showKreatorPage'])->name('kreator.home');
-Route::get('/kreator/forum', [KreatorController::class, 'kreatorForum'])->name('kreator.forum');
-Route::get('/kreator/profile', [KreatorController::class, 'kreatorProfile'])->name('kreator.profile');
+
 // Route::get('/kreator', [KreatorController::class, 'showKreatorPage'])->name('kreator.home');
 Route::get('/video/upload', [VideoController::class, 'showUploadForm'])->name('video.upload');
 Route::post('/video/upload', [VideoController::class, 'upload'])->name('video.upload.post');

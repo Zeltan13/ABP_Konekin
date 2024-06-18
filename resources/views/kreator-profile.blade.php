@@ -143,19 +143,19 @@
         <ul class="nav">
             <li>
                 <a href="{{ route('kreator.home') }}">
-                    <img src="assets\images\Home Icon.png" alt="Home Icon" width="24" height="24">
+                    <img src="{{ asset('assets/images/Home Icon.png') }}" alt="Home" width="24" height="24">
                     Home
                 </a>
             </li>
             <li>
-                <a href="{{ route('kreator.forum') }}">
-                    <img src="assets\images\Forum Icon.png" alt="Forum Icon" width="24" height="24">
+                <a href="{{ route('kreator.forum') }}" class="active">
+                    <img src="{{ asset('assets/images/Forum Icon.png') }}" alt="Forum" width="24" height="24">
                     Forum
                 </a>
             </li>
             <li>
-                <a href="{{ route('kreator.profile') }}" class="active">
-                    <img src="assets\images\Profile Icon.png" alt="Profile Icon" width="24" height="24">
+                <a href="{{ route('kreator.profile') }}">
+                    <img src="{{ asset('assets/images/Profile Icon.png') }}" alt="Profile" width="24" height="24">
                     Profile
                 </a>
             </li>

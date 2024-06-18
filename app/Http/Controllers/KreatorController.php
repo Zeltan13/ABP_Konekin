@@ -53,7 +53,7 @@ class KreatorController extends Controller
             'courses' => $videos
         ]);
     }
-    public function kreatorForum()
+    public function index()
     {
         $forums = [
             [
@@ -104,7 +104,7 @@ class KreatorController extends Controller
             [
                 'name' => 'IT & Software',
                 'image' => 'assets/images/Software.jpg',
-                'link' => 'httpshttps://chat.whatsapp.com/HP15qezfnqiKxYcmUF6V8s'
+                'link' => 'https://chat.whatsapp.com/HP15qezfnqiKxYcmUF6V8s'
             ],
         ];
         $user = Auth::user();
@@ -114,7 +114,7 @@ class KreatorController extends Controller
             $profileImage = 'data:image/jpeg;base64,' . base64_encode($audiens->profilePict);
         }
 
-        return view('kreator-forum', compact('forums', 'profileImage'));
+        return view('kreatorForum', compact('forums', 'profileImage'));
     }
     public function kreatorProfile()
     {

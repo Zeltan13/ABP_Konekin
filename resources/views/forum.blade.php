@@ -162,12 +162,14 @@
             <h1>Forum</h1>
             <div class="forum-categories">
                 @foreach($forums as $forum)
-                    <a href="{{ $forum['link'] }}" target="_blank" class="forum-category">
-                        <img src="{{ $forum['image'] }}" alt="{{ $forum['name'] }}">
-                        <div class="details">
-                            <h3>{{ $forum['name'] }}</h3>
-                        </div>
-                    </a>
+                    <div class="forum-category">
+                        <a href="{{ $forum['link'] }}" target="_blank">
+                            <img src="{{ $forum['image'] }}" alt="{{ $forum['name'] }}">
+                            <div class="details">
+                                <h3>{{ $forum['name'] }}</h3>
+                            </div>
+                        </a>
+                    </div>
                 @endforeach
             </div>
         </div>

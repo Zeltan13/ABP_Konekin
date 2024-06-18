@@ -59,7 +59,7 @@ class ForumController extends Controller
             [
                 'name' => 'IT & Software',
                 'image' => 'assets/images/Software.jpg',
-                'link' => 'httpshttps://chat.whatsapp.com/HP15qezfnqiKxYcmUF6V8s'
+                'link' => 'https://chat.whatsapp.com/HP15qezfnqiKxYcmUF6V8s'
             ],
         ];
         $user = Auth::user();
