@@ -161,7 +161,7 @@
         <div class="profile-container">
             <img src="{{ asset('assets/images/ProfilePic.jpg') }}" alt="Profile Picture" class="profile-picture">
             <p>Hello, {{ Auth::user()->name }}!</p>
-            <p>Let’s find the best consultant with us!</p>
+            <p>Let's find the best consultant with us!</p>
         </div>
         <div class="container">
             @foreach($courses as $category => $categoryCourses)
