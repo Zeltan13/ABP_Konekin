@@ -156,16 +156,6 @@ class ProfileController extends Controller
         return redirect()->route('kreator.home')->with('status', 'You have successfully switched to Kreator!');
     }
 
-    public function kreatorProfile()
-    {
-        $user = Auth::user();
-        $audiens = Audiens::where('username', $user->name)->first();
-        $profileImage = 'https://via.placeholder.com/100';
-        if ($audiens && $audiens->profilePict) {
-            $profileImage = 'data:image/jpeg;base64,' . base64_encode($audiens->profilePict);
-        }
-
-        return view('kreator.profile', compact('user', 'profileImage'));
-    }
+    
 
 }
