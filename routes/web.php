@@ -36,3 +36,4 @@ Route::prefix('course')->group(function() {
     Route::get('/{course}/success', [CourseController::class, 'success'])->name('success');
     Route::get('/{course}/watch', [CourseController::class, 'watch'])->name('watch');
 });
+

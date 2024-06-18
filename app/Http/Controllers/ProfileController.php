@@ -31,15 +31,14 @@ class ProfileController extends Controller
 
     public function update(Request $request)
     {
-        $user = Auth::user();
-    
         $request->validate([
             'name' => 'required|string|max:255',
-            // Add validation rules for other fields if needed
+            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-    
+        $user = Auth::user();
         // Update the corresponding record in the 'audiens' table
-        $audiens = Audiens::where('username', $user->name)->first();
+        $audiens = Audiens::where('id', $user->id)->first();
+        
         if ($audiens) {
             // If 'audiens' record exists for the user, update its attributes
             $audiens->username = $request->input('name');
@@ -54,9 +53,15 @@ class ProfileController extends Controller
         }
         // Update the user's name
         $user->name = $request->input('name');
+
+        if ($request->hasFile('profile_picture')) {
+            $profilePicture = $request->file('profile_picture');
+            $profilePictureContent = file_get_contents($profilePicture->getRealPath());
+            $audiens->profilePict = $profilePictureContent;
+        }
         // Update other fields of the user if needed
         $user->save();
-
+        $audiens->save();
     
         return redirect()->route('profile')->with('status', 'Profile and related records updated!');
     }
