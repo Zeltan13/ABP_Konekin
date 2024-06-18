@@ -16,7 +16,7 @@
             align-items: center;
         }
         .container {
-            max-width: 1200px;
+            max-width: 1200px; /* Increase max-width for wider container */
             margin: 20px;
             background-color: white;
             padding: 20px;
@@ -80,7 +80,7 @@
         }
         .profile-container {
             width: 200px;
-            height: 320px;
+            height:320px;
             padding: 20px;
             margin-right: 10px;
             margin-left: 10px; 
@@ -97,8 +97,8 @@
         }
         .forum-categories {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+            gap: 20px; /* Space between columns */
             flex: 1;
         }
         .forum-category {
@@ -113,9 +113,9 @@
             background-color: #f0f0f0;
         }
         .forum-category img {
-            width: 160px;
-            height: 90px;
-            border-radius: 10px;
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
             margin-right: 20px;
         }
         .forum-category .details {
@@ -161,66 +161,14 @@
         <div class="container">
             <h1>Forum</h1>
             <div class="forum-categories">
-                <a href="link_to_forum1" target="_blank" class="forum-category">
-                    <img src="{{ asset('assets/images/Design.jpg') }}" alt="Design">
-                    <div class="details">
-                        <h3>Design</h3>
-                    </div>
-                </a>
-                <a href="link_to_forum2" target="_blank" class="forum-category">
-                    <img src="{{ asset('assets/images/Business.png') }}" alt="Business">
-                    <div class="details">
-                        <h3>Business</h3>
-                    </div>
-                </a>
-                <a href="link_to_forum3" target="_blank" class="forum-category">
-                    <img src="{{ asset('assets/images/Personal Development.jpg') }}" alt="Personal Development">
-                    <div class="details">
-                        <h3>Personal Development</h3>
-                    </div>
-                </a>
-                <a href="link_to_forum4" target="_blank" class="forum-category">
-                    <img src="{{ asset('assets/images/3D.jpg') }}" alt="3D Animation">
-                    <div class="details">
-                        <h3>3D Animation</h3>
-                    </div>
-                </a>
-                <a href="link_to_forum5" target="_blank" class="forum-category">
-                    <img src="{{ asset('assets/images/Finance.jpg') }}" alt="Finance & Accounting">
-                    <div class="details">
-                        <h3>Finance & Accounting</h3>
-                    </div>
-                </a>
-                <a href="link_to_forum6" target="_blank" class="forum-category">
-                    <img src="{{ asset('assets/images/Marketing.jpg') }}" alt="Marketing">
-                    <div class="details">
-                        <h3>Marketing</h3>
-                    </div>
-                </a>
-                <a href="link_to_forum7" target="_blank" class="forum-category">
-                    <img src="{{ asset('assets/images/Lifestyle.jpg') }}" alt="Lifestyle">
-                    <div class="details">
-                        <h3>Lifestyle</h3>
-                    </div>
-                </a>
-                <a href="link_to_forum8" target="_blank" class="forum-category">
-                    <img src="{{ asset('assets/images/Fitness.jpg') }}" alt="Health & Fitness">
-                    <div class="details">
-                        <h3>Health & Fitness</h3>
-                    </div>
-                </a>
-                <a href="link_to_forum9" target="_blank" class="forum-category">
-                    <img src="{{ asset('assets/images/Development.jpg') }}" alt="Development">
-                    <div class="details">
-                        <h3>Development</h3>
-                    </div>
-                </a>
-                <a href="link_to_forum10" target="_blank" class="forum-category">
-                    <img src="{{ asset('assets/images/Software.jpg') }}" alt="IT & Software">
-                    <div class="details">
-                        <h3>IT & Software</h3>
-                    </div>
-                </a>
+                @foreach($forums as $forum)
+                    <a href="{{ $forum['link'] }}" target="_blank" class="forum-category">
+                        <img src="{{ $forum['image'] }}" alt="{{ $forum['name'] }}">
+                        <div class="details">
+                            <h3>{{ $forum['name'] }}</h3>
+                        </div>
+                    </a>
+                @endforeach
             </div>
         </div>
     </div>
