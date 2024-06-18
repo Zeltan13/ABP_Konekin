@@ -76,8 +76,8 @@
         }
         .profile-header img {
             border-radius: 50%;
-            width: 250px;
-            height: 250px;
+            width: 200px;
+            height: 200px;
             object-fit: cover; 
         }
         .profile-header h2 {
@@ -100,6 +100,7 @@
         }
         .settings a:hover {
             background-color: #f0f0f0;
+            border-radius:10px;
         }
         .logout-form {
             display: inline;
@@ -112,6 +113,12 @@
             padding: 15px;
             width: 100%;
             text-align: left;
+            font-family: 'Lato', Arial, sans-serif;
+            font-size: 16px;
+        }
+        .logout-form button:hover {
+            background-color: #f0f0f0;
+            border-radius:10px;
         }
         .floating-button {
             position: fixed;

@@ -76,8 +76,8 @@
         }
         .profile-header img {
             border-radius: 50%;
-            width: 250px;
-            height: 250px;
+            width: 200px;
+            height: 200px;
             object-fit: cover; /* Ensure the image fills the circle without stretching */
         }
         .profile-header h2 {
@@ -87,6 +87,7 @@
         .settings {
             text-align: left;
             margin-top: 20px;
+            font-size: 16px;
         }
         .settings a {
             display: block;
@@ -100,11 +101,14 @@
         }
         .settings a:hover {
             background-color: #f0f0f0;
+            border-radius:10px;
         }
         .logout-form {
             display: inline;
+            
         }
         .logout-form button {
+            font-family: 'Lato', Arial, sans-serif;
             background: none;
             border: none;
             color: inherit;
@@ -112,6 +116,11 @@
             padding: 15px;
             width: 100%;
             text-align: left;
+            font-size: 16px;
+        }
+        .logout-form button:hover {
+            background-color: #f0f0f0;
+            border-radius:10px;
         }
         .logo-link {
             text-decoration: none; /* Remove underline from link */
