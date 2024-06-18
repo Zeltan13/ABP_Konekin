@@ -126,6 +126,26 @@
         .forum-category .details h3 {
             margin: 0;
         }
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .floating-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -175,5 +195,8 @@
             </div>
         </div>
     </div>
+    <button class="floating-button" onclick="window.location.href='{{ route('kreator.create') }}'">
+        +
+    </button>
 </body>
 </html>
