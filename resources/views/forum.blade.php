@@ -10,13 +10,36 @@
             background-color: #f5f5f5;
         }
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             background-color: white;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
+        }
+        .forum-category {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .forum-category:hover {
+            background-color: #f0f0f0;
+        }
+        .forum-category img {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+        .forum-category .details {
+            flex: 1;
+        }
+        .forum-category .details h3 {
+            margin: 0;
         }
         .nav {
             list-style: none;
@@ -37,27 +60,6 @@
         .nav a.active {
             color: #007bff;
         }
-        .forum-list {
-            margin-top: 20px;
-            text-align: left;
-        }
-        .forum-list h3 {
-            margin-bottom: 10px;
-        }
-        .forum-item {
-            border-bottom: 1px solid #ddd;
-            padding: 10px 0;
-        }
-        .forum-item:last-child {
-            border-bottom: none;
-        }
-        .forum-item a {
-            text-decoration: none;
-            color: #007bff;
-        }
-        .forum-item a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
@@ -67,16 +69,15 @@
         <li><a href="{{ route('profile') }}">Profile</a></li>
     </ul>
     <div class="container">
-        <h2>Forum</h2>
-        <div class="forum-list">
-            <h3>Latest Discussions</h3>
-            @foreach ($threads as $thread)
-                <div class="forum-item">
-                    <a href="{{ route('forum.thread', $thread->id) }}">{{ $thread->title }}</a>
-                    <p>Started by {{ $thread->user->name }} on {{ $thread->created_at->format('M d, Y') }}</p>
+        <h1>Forum</h1>
+        @foreach($forums as $forum)
+            <a href="{{ $forum['link'] }}" target="_blank" class="forum-category">
+                <img src="{{ $forum['image'] }}" alt="{{ $forum['name'] }}">
+                <div class="details">
+                    <h3>{{ $forum['name'] }}</h3>
                 </div>
-            @endforeach
-        </div>
+            </a>
+        @endforeach
     </div>
 </body>
 </html>
