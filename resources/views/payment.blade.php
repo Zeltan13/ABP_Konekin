@@ -26,38 +26,35 @@
         }
         .payment-method {
             margin: 20px 0;
-            font-family: 'Lato', sans-serif;
         }
-        .payment-method label {
-            display: block;
+        .payment-option {
+            display: flex;
+            align-items: center;
+            padding: 10px;
             margin-bottom: 10px;
-            text-align: left; /* Align labels to the left */
-            font-family: 'Lato', sans-serif;
-        }
-        .payment-method input[type="radio"] {
-            margin-right: 10px;
-            font-family: 'Lato', sans-serif;
-        }
-        .payment-method button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
+            background-color: #f7f7f7;
             border-radius: 5px;
             cursor: pointer;
-            font-family: 'Lato', sans-serif;
+            transition: background-color 0.3s;
+        }
+        .payment-option.selected {
+            background-color: #007bff;
+            color: white;
+        }
+        .payment-option img {
+            margin-right: 10px;
+        }
+        .payment-option input[type="radio"] {
+            display: none;
         }
         .checkbox-container {
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 20px 0;
-            text-align: left; /* Align checkbox to the left */
-            font-family: 'Lato', sans-serif;
         }
         .checkbox-container input[type="checkbox"] {
             margin-right: 10px;
-            font-family: 'Lato', sans-serif;
         }
         button {
             padding: 10px 20px;
@@ -71,10 +68,10 @@
             background-color: #dc3545;
             border-radius: 5px;
         }
-        button:hover{
+        button:hover {
             background-color: #0056b3;
         }
-        .back-button:hover{
+        .back-button:hover {
             background-color: #a91b0d;
         }
     </style>
@@ -86,43 +83,57 @@
             <form action="{{ route('course.pay', ['course' => $course->videoTitle]) }}" method="POST">
                 @csrf
                 <div class="payment-method">
-                    <label>
-                        <img src="{{ asset('assets\images\logo_mandiri.png') }}" alt="Mandiri" width="24" height="24">
-                        <input type="radio" name="payment_method" value="mandiri" required>
-                        Bank Mandiri: 102000998086
-                    </label>
-                    <label>
-                        <img src="{{ asset('assets\images\logo_bca.png') }}" alt="BCA" width="24" height="24">
-                        <input type="radio" name="payment_method" value="bca" required>
-                        Bank BCA: 102000998086
-                    </label>
-                    <label>
-                        <img src="{{ asset('assets\images\logo_bsi.png') }}" alt="BSI" width="24" height="24">
-                        <input type="radio" name="payment_method" value="bsi" required>
-                        Bank BSI: 102000998086
-                    </label>
-                    <label>
-                        <img src="{{ asset('assets\images\logo_bni.png') }}" alt="BNI" width="24" height="24">
-                        <input type="radio" name="payment_method" value="bni" required>
-                        Bank BNI: 102000998086
-                    </label>
+                    <div class="payment-option" data-value="mandiri">
+                        <img src="{{ asset('assets/images/logo_mandiri.png') }}" alt="Mandiri" width="24" height="24">
+                        <label>
+                            <input type="radio" name="payment_method" value="mandiri" required>
+                            Bank Mandiri: 102000998086
+                        </label>
+                    </div>
+                    <div class="payment-option" data-value="bca">
+                        <img src="{{ asset('assets/images/logo_bca.png') }}" alt="BCA" width="24" height="24">
+                        <label>
+                            <input type="radio" name="payment_method" value="bca" required>
+                            Bank BCA: 102000998086
+                        </label>
+                    </div>
+                    <div class="payment-option" data-value="bsi">
+                        <img src="{{ asset('assets/images/logo_bsi.png') }}" alt="BSI" width="24" height="24">
+                        <label>
+                            <input type="radio" name="payment_method" value="bsi" required>
+                            Bank BSI: 102000998086
+                        </label>
+                    </div>
+                    <div class="payment-option" data-value="bni">
+                        <img src="{{ asset('assets/images/logo_bni.png') }}" alt="BNI" width="24" height="24">
+                        <label>
+                            <input type="radio" name="payment_method" value="bni" required>
+                            Bank BNI: 102000998086
+                        </label>
+                    </div>
                 </div>
                 <div class="payment-method">
-                    <label>
-                        <img src="{{ asset('assets\images\logo_dana.png') }}" alt="Dana" width="24" height="24">
-                        <input type="radio" name="payment_method" value="dana" required>
-                        Dana: 081398844808
-                    </label>
-                    <label>
-                        <img src="{{ asset('assets\images\logo_ovo.png') }}" alt="OVO" width="24" height="24">
-                        <input type="radio" name="payment_method" value="ovo" required>
-                        OVO: 081398844808
-                    </label>
-                    <label>
-                        <img src="{{ asset('assets\images\logo_gopay.png') }}" alt="Gopay" width="24" height="24">
-                        <input type="radio" name="payment_method" value="gopay" required>
-                        Gopay: 081398844808
-                    </label>
+                    <div class="payment-option" data-value="dana">
+                        <img src="{{ asset('assets/images/logo_dana.png') }}" alt="Dana" width="24" height="24">
+                        <label>
+                            <input type="radio" name="payment_method" value="dana" required>
+                            Dana: 081398844808
+                        </label>
+                    </div>
+                    <div class="payment-option" data-value="ovo">
+                        <img src="{{ asset('assets/images/logo_ovo.png') }}" alt="OVO" width="24" height="24">
+                        <label>
+                            <input type="radio" name="payment_method" value="ovo" required>
+                            OVO: 081398844808
+                        </label>
+                    </div>
+                    <div class="payment-option" data-value="gopay">
+                        <img src="{{ asset('assets/images/logo_gopay.png') }}" alt="Gopay" width="24" height="24">
+                        <label>
+                            <input type="radio" name="payment_method" value="gopay" required>
+                            Gopay: 081398844808
+                        </label>
+                    </div>
                 </div>
                 <div class="checkbox-container">
                     <input type="checkbox" id="have-paid" name="have_paid" required>
@@ -135,5 +146,14 @@
             </form>
         </div>
     </div>
+    <script>
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                this.querySelector('input[type="radio"]').checked = true;
+            });
+        });
+    </script>
 </body>
 </html>
