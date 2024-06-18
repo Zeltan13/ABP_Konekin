@@ -113,6 +113,7 @@
         }
         .profile-container {
             width: 200px;
+            height: 320px;
             padding: 20px;
             margin-right: 10px;
             margin-left: 10px; 
