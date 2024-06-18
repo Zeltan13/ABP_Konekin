@@ -22,6 +22,9 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
         .header {
             display: flex;
@@ -74,6 +77,8 @@
         }
         .category {
             margin-bottom: 40px;
+            flex: 1 1 48%; /* Adjust this value to change the width of the columns */
+            box-sizing: border-box;
         }
         .category h2 {
             margin-bottom: 20px;
@@ -117,7 +122,7 @@
             height: 320px;
             padding: 20px;
             margin-right: 10px;
-            margin-left: 10px; 
+            margin-left: 10px;
             margin-top: 20px;
             background-color: white;
             border-radius: 8px;
@@ -125,7 +130,7 @@
             text-align: center;
         }
         .profile-picture {
-            width: 100%; 
+            width: 100%;
             border-radius: 50%;
             margin-bottom: 10px;
         }

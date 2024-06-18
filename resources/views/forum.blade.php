@@ -113,8 +113,8 @@
             background-color: #f0f0f0;
         }
         .forum-category img {
-            width: 100px;
-            height: 100px;
+            width: 160px;
+            height: 90px;
             border-radius: 8px;
             margin-right: 20px;
         }
