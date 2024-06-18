@@ -8,6 +8,7 @@ use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\KreatorController;
 
 
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
@@ -26,6 +27,9 @@ Route::middleware('auth')->group(function() {
     Route::post('/profile/edit', [ProfileController::class, 'update'])->name('profile.update');
     Route::get('/profile/change-password', [ProfileController::class, 'showChangePasswordForm'])->name('profile.change-password');
     Route::post('/profile/change-password', [ProfileController::class, 'changePassword'])->name('profile.change-password.update');
+
+    Route::get('/profile/switch-to-creator', [ProfileController::class, 'showSwitchToCreatorForm'])->name('profile.switch-to-creator');
+    Route::post('/profile/switch-to-creator', [ProfileController::class, 'switchToCreator'])->name('profile.switch-to-creator');
 });
 
 Route::prefix('course')->group(function() {
@@ -37,3 +41,6 @@ Route::prefix('course')->group(function() {
     Route::get('/{course}/watch', [CourseController::class, 'watch'])->name('watch');
 });
 
+Route::get('/kreator', [KreatorController::class, 'showKreatorPage'])->name('kreator.home');
+Route::get('/video/upload', [VideoController::class, 'showUploadForm'])->name('video.upload');
+Route::post('/video/upload', [VideoController::class, 'upload'])->name('video.upload.post');

@@ -18,4 +18,12 @@ class VideoController extends Controller
             'Content-Disposition' => 'inline; filename="thumbnail.jpg"'
         ]);
     }
+    public function showUploadForm()
+    {
+        return view('video-upload');
+    }
+    public function upload(Request $request)
+    {
+        // Handle the video upload logic here
+    }
 }
