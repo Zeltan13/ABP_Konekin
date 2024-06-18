@@ -14,7 +14,7 @@ class Audiens extends Model
     protected $fillable = [
         'username',
         'noHP',
-        'email', 
-        'profilePict',
+        'email',
+        'profilePict'
     ];
 }

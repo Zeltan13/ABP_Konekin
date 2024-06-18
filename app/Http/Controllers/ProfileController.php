@@ -12,7 +12,16 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        return view('profile');
+        $user = Auth::user();
+        $audien = Audiens::find($user->id);
+        
+        $profileImage = 'https://via.placeholder.com/100'; // Default profile picture
+        
+        if ($audien && $audien->profilePict) {
+            $profileImage = 'data:image/jpeg;base64,' . base64_encode($audien->profilePict);
+        }
+        
+        return view('profile', compact('profileImage'));
     }
 
     public function edit()
