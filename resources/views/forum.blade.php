@@ -40,7 +40,6 @@
             background-color: #122F77;
             border-radius: 10px;
             padding: 10px 20px;
-            margin-left: 20px;
         }
         .logo h1 {
             color: white;

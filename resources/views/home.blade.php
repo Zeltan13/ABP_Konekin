@@ -31,6 +31,7 @@
             background-color: white;
             border-bottom: 1px solid #ddd;
             width: 100%;
+            box-sizing: border-box;
         }
         .logo {
             display: flex;
