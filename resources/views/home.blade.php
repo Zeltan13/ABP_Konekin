@@ -31,6 +31,7 @@
             background-color: white;
             border-bottom: 1px solid #ddd;
             width: 100%;
+            box-sizing: border-box; 
         }
         .logo {
             display: flex;
@@ -38,6 +39,7 @@
             background-color: #122F77;
             border-radius: 10px;
             padding: 10px 20px;
+            
         }
         .logo h1 {
             color: white;
