@@ -20,7 +20,6 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            font-family: 'Lato', Arial, sans-serif;
         }
         .header {
             display: flex;
@@ -38,21 +37,18 @@
             background-color: #122F77;
             border-radius: 10px;
             padding: 10px 20px;
-            font-family: 'Lato', Arial, sans-serif;
         }
         .logo h1 {
             color: white;
             margin: 0;
             font-size: 24px;
             font-weight: 700;
-            font-family: 'Lato', Arial, sans-serif;
         }
         .nav {
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
-            font-family: 'Lato', Arial, sans-serif;
         }
         .nav li {
             display: flex;
@@ -60,7 +56,6 @@
             align-items: center;
             justify-content: center;
             margin-left: 20px;
-            font-family: 'Lato', Arial, sans-serif;
         }
         .nav a {
             text-decoration: none;
@@ -68,7 +63,6 @@
             display: flex;
             align-items: center;
             color: #000;
-            font-family: 'Lato', Arial, sans-serif;
         }
         .nav a img {
             margin-right: 8px;
@@ -78,7 +72,6 @@
         }
         .profile-header {
             text-align: center;
-            font-family: 'Lato', Arial, sans-serif;
         }
         .profile-header img {
             border-radius: 50%;
@@ -87,12 +80,10 @@
         }
         .profile-header h2 {
             margin-top: 10px;
-            font-family: 'Lato', Arial, sans-serif;
         }
         .settings {
             text-align: left;
             margin-top: 20px;
-            font-family: 'Lato', Arial, sans-serif;
         }
         .settings a {
             display: block;
@@ -100,7 +91,6 @@
             border-bottom: 1px solid #ddd;
             text-decoration: none;
             color: #000;
-            font-family: 'Lato', Arial, sans-serif;
         }
         .settings a:last-child {
             border-bottom: none;
@@ -110,10 +100,15 @@
         }
         .logout-form {
             display: inline;
-            font-family: 'Lato', Arial, sans-serif;
         }
         .logout-form button {
-            font-family: 'Lato', Arial, sans-serif;
+            background: none;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            text-align: left;
         }
     </style>
 </head>
@@ -145,7 +140,7 @@
     </div>
     <div class="container">
         <div class="profile-header">
-            <img src="https://via.placeholder.com/100" alt="Profile Picture">
+            <img src="{{ $profileImage }}" alt="Profile Picture">
             <h2>{{ Auth::user()->name }}</h2>
         </div>
         <div class="settings">
@@ -155,7 +150,7 @@
             <a href="https://docs.google.com/document/d/1-XAXTJ7fhj3vXKfGuunh95WCvWixjvcrbFLdBmFL0As/edit?usp=sharing" target="_blank">Help</a>
             <form action="{{ route('logout') }}" method="POST" class="logout-form">
                 @csrf
-                <button type="submit" style="background:none;border:none;color:inherit;cursor:pointer;padding:15px;width:100%;text-align:left;">Logout</button>
+                <button type="submit">Logout</button>
             </form>
         </div>
     </div>
