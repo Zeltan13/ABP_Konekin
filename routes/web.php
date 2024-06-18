@@ -19,6 +19,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function() {
+    //audiens things
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/forum', [ForumController::class, 'index'])->name('forum');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
@@ -30,6 +31,11 @@ Route::middleware('auth')->group(function() {
 
     Route::get('/profile/switch-to-creator', [ProfileController::class, 'showSwitchToCreatorForm'])->name('profile.switch-to-creator');
     Route::post('/profile/switch-to-creator', [ProfileController::class, 'switchToCreator'])->name('profile.switch-to-creator');
+
+    //kreator things
+    Route::get('/kreator-home', [HomeController::class, 'showKreatorPage'])->name('kreator.home');
+    Route::get('/kreator-forum', [ForumController::class, 'kreatorForum'])->name('kreator.forum');
+    Route::get('/kreator-profile', [ProfileController::class, 'kreatorProfile'])->name('kreator.profile');
 });
 
 Route::prefix('course')->group(function() {
