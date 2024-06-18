@@ -211,7 +211,7 @@
                             <div class="course-details">
                                 <h3>{{ $course->videoTitle }}</h3>
                                 <div class="price">Rp{{ number_format($course->cleanPrice, 0, ',', '.') }}</div>
-                                <a href="{{ route('course.description', ['course' => $course->videoTitle]) }}">
+                                <a href="{{ route('kreator.video.edit', ['id' => $course->id]) }}">
                                     <button type="button">View Details</button>
                                 </a>
                             </div>

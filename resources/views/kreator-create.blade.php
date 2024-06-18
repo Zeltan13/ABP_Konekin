@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Video</title>
+    <title>Upload Video</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -102,16 +102,38 @@
                 <textarea id="description" name="description" rows="4" required></textarea>
             </div>
             <div class="form-group">
-                <label for="harga">Harga</label>
-                <input type="number" id="harga" name="harga" required>
+                <label for="videoDuration">Video Duration</label>
+                <input type="text" id="videoDuration" name="videoDuration" required>
+            </div>
+            <div class="form-group">
+                <label for="harga">Price (Rp)</label>
+                <div style="position: relative;">
+                    <span style="position: absolute; top: 50%; transform: translateY(-50%); left: 10px;">Rp</span>
+                    <input type="text" id="harga" name="harga" pattern="[0-9]+" title="Only numeric values are allowed" required style="padding-left: 30px;">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="video_link">Video Link</label>
+                <input type="url" id="video_link" name="video_link" required>
             </div>
             <div class="form-group">
                 <label for="thumbnail">Thumbnail</label>
                 <input type="file" id="thumbnail" name="thumbnail" accept="image/*" required>
             </div>
             <div class="form-group">
-                <label for="video_link">Video Link</label>
-                <input type="url" id="video_link" name="video_link" required>
+                <label for="category">Category</label>
+                <select id="category" name="category" required>
+                    <option value="Design">Design</option>
+                    <option value="Business">Business</option>
+                    <option value="Personal Development">Personal Development</option>
+                    <option value="3D and Animation">3D and Animation</option>
+                    <option value="Finance & Accounting">Finance & Accounting</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Lifestyle">Lifestyle</option>
+                    <option value="Health & Fitness">Health & Fitness</option>
+                    <option value="Development">Development</option>
+                    <option value="IT & Software">IT & Software</option>
+                </select>
             </div>
             <div class="form-buttons">
                 <button type="submit">Upload Video</button>

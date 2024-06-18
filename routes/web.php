@@ -31,13 +31,22 @@ Route::middleware('auth')->group(function() {
 
     Route::get('/profile/switch-to-creator', [ProfileController::class, 'showSwitchToCreatorForm'])->name('profile.switch-to-creator');
     Route::post('/profile/switch-to-creator', [ProfileController::class, 'switchToCreator'])->name('profile.switch-to-creator');
+    
+    // Kreator routes
+    Route::prefix('kreator')->group(function() {
+        Route::get('/create', [KreatorController::class, 'create'])->name('kreator.create');
+        Route::post('/store', [KreatorController::class, 'store'])->name('kreator.store');
+        Route::get('/', [KreatorController::class, 'showKreatorPage'])->name('kreator.home');
+        Route::get('/forum', [KreatorController::class, 'index'])->name('kreator.forum');
+        Route::get('/profile', [KreatorController::class, 'kreatorProfile'])->name('kreator.profile');
+        Route::get('/profile/edit', [KreatorController::class, 'edit'])->name('kreator.profile.edit');
+        Route::post('/profile/edit', [KreatorController::class, 'update'])->name('kreator.profile.update');
+        Route::get('/profile/change-password', [KreatorController::class, 'showChangePasswordForm'])->name('kreator.profile.change-password');
+        Route::post('/profile/change-password', [KreatorController::class, 'changePassword'])->name('kreator.profile.change-password.update');
 
-    //kreator things
-    Route::get('/kreator/create', [KreatorController::class, 'create'])->name('kreator.create');
-    Route::post('/kreator/store', [KreatorController::class, 'store'])->name('kreator.store');
-    Route::get('/kreator', [KreatorController::class, 'showKreatorPage'])->name('kreator.home');
-    Route::get('/kreator/forum', [KreatorController::class, 'index'])->name('kreator.forum');
-    Route::get('/kreator/profile', [KreatorController::class, 'kreatorProfile'])->name('kreator.profile');
+        Route::get('/video/{id}/edit', [VideoController::class, 'edit'])->name('kreator.video.edit');
+        Route::post('/video/{id}/update', [VideoController::class, 'update'])->name('kreator.video.update');
+    });
 });
 
 Route::prefix('course')->group(function() {

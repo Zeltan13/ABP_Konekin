@@ -21,7 +21,7 @@ class Kreator extends Model
         'rekening',
         'profilePict',
     ];
-
+    
     // Define relationships
     public function videos()
     {
@@ -31,5 +31,9 @@ class Kreator extends Model
     public function transactions()
     {
         return $this->hasMany(Transaksi::class, 'idKreator');
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'username', 'name');
     }
 }
