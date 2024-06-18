@@ -159,13 +159,33 @@
         .floating-button:hover {
             background-color: #0056b3;
         }
+        .logo-link {
+            text-decoration: none; /* Remove underline from link */
+        }
+
+        .logo-link .logo {
+            display: flex;
+            align-items: center;
+            background-color: #122F77;
+            border-radius: 10px;
+            padding: 10px 20px;
+        }
+
+        .logo-link .logo h1 {
+            color: white;
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="logo">
-            <h1>Konekin</h1>
-        </div>
+        <a href="{{ route('kreator.home') }}" class="logo-link">
+            <div class="logo">
+                <h1>Konekin</h1>
+            </div>
+        </a>
         <ul class="nav">
             <li>
                 <a href="{{ route('kreator.home') }}" class="active">

@@ -133,13 +133,33 @@
         .floating-button:hover {
             background-color: #0056b3;
         }
+        .logo-link {
+            text-decoration: none; /* Remove underline from link */
+        }
+
+        .logo-link .logo {
+            display: flex;
+            align-items: center;
+            background-color: #122F77;
+            border-radius: 10px;
+            padding: 10px 20px;
+        }
+
+        .logo-link .logo h1 {
+            color: white;
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="logo">
-            <h1>Konekin</h1>
-        </div>
+        <a href="{{ route('kreator.home') }}" class="logo-link">
+            <div class="logo">
+                <h1>Konekin</h1>
+            </div>
+        </a>
         <ul class="nav">
             <li>
                 <a href="{{ route('kreator.home') }}">
@@ -148,13 +168,13 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('kreator.forum') }}" class="active">
+                <a href="{{ route('kreator.forum') }}">
                     <img src="{{ asset('assets/images/Forum Icon.png') }}" alt="Forum" width="24" height="24">
                     Forum
                 </a>
             </li>
             <li>
-                <a href="{{ route('kreator.profile') }}">
+                <a href="{{ route('kreator.profile') }}" class="active">
                     <img src="{{ asset('assets/images/Profile Icon.png') }}" alt="Profile" width="24" height="24">
                     Profile
                 </a>
