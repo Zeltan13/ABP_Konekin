@@ -31,7 +31,6 @@
             background-color: white;
             border-bottom: 1px solid #ddd;
             width: 100%;
-            box-sizing: border-box; 
         }
         .logo {
             display: flex;
@@ -39,7 +38,6 @@
             background-color: #122F77;
             border-radius: 10px;
             padding: 10px 20px;
-            
         }
         .logo h1 {
             color: white;
@@ -173,10 +171,9 @@
                     <div class="course-details">
                         <h3>{{ $course->videoTitle }}</h3>
                         <div class="price">Rp{{ number_format($course->cleanPrice, 0, ',', '.') }}</div>
-                        <form action="{{ route('course.buy', ['course' => $course->videoTitle]) }}" method="POST">
-                            @csrf
-                            <button type="submit">Buy Now</button>
-                        </form>
+                        <a href="{{ route('course.description', ['course' => $course->videoTitle]) }}">
+                            <button type="button">View Details</button>
+                        </a>
                     </div>
                 </div>
                 @endforeach

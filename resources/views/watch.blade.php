@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watch {{ $course }}</title>
+    <title>Watch {{ $course->videoTitle }}</title>
     <style>
-        /* Add your CSS styles here */
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
@@ -29,8 +28,8 @@
 </head>
 <body>
     <div class="container">
-        <h2>{{ $course }}</h2>
-        <iframe src="{{ $videoUrl }}" frameborder="0" allowfullscreen></iframe>
+        <h2>{{ $course->videoTitle }}</h2>
+        <iframe src="{{ $videoUrl }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 </body>
 </html>
