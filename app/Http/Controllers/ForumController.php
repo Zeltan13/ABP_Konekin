@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Audiens;
 
 class ForumController extends Controller
 {
@@ -60,7 +62,13 @@ class ForumController extends Controller
                 'link' => 'httpshttps://chat.whatsapp.com/HP15qezfnqiKxYcmUF6V8s'
             ],
         ];
+        $user = Auth::user();
+        $audiens = Audiens::where('username', $user->name)->first();
+        $profileImage = 'https://via.placeholder.com/100';
+        if ($audiens && $audiens->profilePict) {
+            $profileImage = 'data:image/jpeg;base64,' . base64_encode($audiens->profilePict);
+        }
 
-        return view('forum', compact('forums'));
+        return view('forum', compact('forums', 'profileImage'));
     }
 }

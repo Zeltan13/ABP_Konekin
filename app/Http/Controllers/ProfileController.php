@@ -13,12 +13,12 @@ class ProfileController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $audien = Audiens::find($user->id);
+        $audiens = Audiens::where('username', $user->name)->first();
         
         $profileImage = 'https://via.placeholder.com/100'; // Default profile picture
         
-        if ($audien && $audien->profilePict) {
-            $profileImage = 'data:image/jpeg;base64,' . base64_encode($audien->profilePict);
+        if ($audiens && $audiens->profilePict) {
+            $profileImage = 'data:image/jpeg;base64,' . base64_encode($audiens->profilePict);
         }
         
         return view('profile', compact('profileImage'));
@@ -37,7 +37,7 @@ class ProfileController extends Controller
         ]);
         $user = Auth::user();
         // Update the corresponding record in the 'audiens' table
-        $audiens = Audiens::where('id', $user->id)->first();
+        $audiens = Audiens::where('username', $user->name)->first();
         
         if ($audiens) {
             // If 'audiens' record exists for the user, update its attributes

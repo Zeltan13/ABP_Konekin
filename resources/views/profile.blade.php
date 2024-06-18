@@ -12,15 +12,6 @@
             margin: 0;
             min-height: 100vh;
         }
-        .container {
-            max-width: 750px;
-            margin: 20px auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
         .header {
             display: flex;
             align-items: center;
@@ -70,16 +61,28 @@
         .nav a.active {
             color: #007bff;
         }
+        .container {
+            max-width: 750px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
         .profile-header {
             text-align: center;
+            margin-bottom: 20px;
         }
         .profile-header img {
             border-radius: 50%;
             width: 100px;
             height: 100px;
+            object-fit: cover; /* Ensure the image fills the circle without stretching */
         }
         .profile-header h2 {
             margin-top: 10px;
+            color: #333;
         }
         .settings {
             text-align: left;

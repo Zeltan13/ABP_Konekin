@@ -17,7 +17,7 @@ class HomeController extends Controller
         $user = Auth::user();
         
         // Fetch the corresponding Audiens record for the authenticated user
-        $audiens = Audiens::where('id', $user->id)->first();
+        $audiens = Audiens::where('username', $user->name)->first();
 
         // Set a default profile image
         $profileImage = 'https://via.placeholder.com/100';

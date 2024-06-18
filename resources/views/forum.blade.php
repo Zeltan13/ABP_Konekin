@@ -154,7 +154,7 @@
     </div>
     <div class="main-content">
         <div class="profile-container">
-            <img src="{{ asset('assets/images/ProfilePic.jpg') }}" alt="Profile Picture" class="profile-picture">
+            <img src="{{ $profileImage }}" alt="Profile Picture" class="profile-picture">
             <p>Hello, {{ Auth::user()->name }}!</p>
             <p>Let’s find the best consultant with us!</p>
         </div>
