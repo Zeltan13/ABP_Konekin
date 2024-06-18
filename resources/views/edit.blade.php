@@ -129,13 +129,16 @@
                 </ul>
             </div>
         @endif
-        <form action="{{ route('profile.update') }}" method="POST">
+        <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <input type="text" id="name" name="name" value="{{ $user->name }}" required placeholder=" ">
                 <label for="name">Name</label>
             </div>
-            <!-- Add other fields if needed -->
+            <div class="form-group">
+                <input type="file" id="profile_picture" name="profile_picture">
+                <label for="profile_picture">Profile Picture</label>
+            </div>
             <div class="form-buttons">
                 <button type="submit">Update Profile</button>
                 <a href="{{ route('profile') }}" class="back-button">Cancel</a>
