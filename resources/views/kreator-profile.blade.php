@@ -78,7 +78,7 @@
             border-radius: 50%;
             width: 100px;
             height: 100px;
-            object-fit: cover; /* Ensure the image fills the circle without stretching */
+            object-fit: cover; 
         }
         .profile-header h2 {
             margin-top: 10px;
@@ -122,13 +122,22 @@
         </div>
         <ul class="nav">
             <li>
-                <a href="{{ route('kreator.home') }}" class="active"><img src="assets\images\Home Icon.png" alt="Home Icon" width="24" height="24">Home</a>
+                <a href="{{ route('kreator.home') }}">
+                    <img src="assets\images\Home Icon.png" alt="Home Icon" width="24" height="24">
+                    Home
+                </a>
             </li>
             <li>
-                <a href="{{ route('kreator.forum') }}"><img src="assets\images\Forum Icon.png" alt="Stream Icon" width="24" height="24">Forum</a>
+                <a href="{{ route('kreator.forum') }}">
+                    <img src="assets\images\Forum Icon.png" alt="Forum Icon" width="24" height="24">
+                    Forum
+                </a>
             </li>
             <li>
-                <a href="{{ route('kreator.profile') }}"><img src="assets\images\Profile Icon.png" alt="Profile Icon" width="24" height="24">Profile</a>
+                <a href="{{ route('kreator.profile') }}" class="active">
+                    <img src="assets\images\Profile Icon.png" alt="Profile Icon" width="24" height="24">
+                    Profile
+                </a>
             </li>
         </ul>
     </div>
@@ -140,7 +149,7 @@
         <div class="settings">
             <a href="{{ route('profile.edit') }}">Edit Profile</a>
             <a href="{{ route('profile.change-password') }}">Change Password</a>
-            <a href="{{ route('profile.switch-to-creator') }}">Switch to Creator</a> <!-- Link to switch to Kreator form -->
+            <a href="{{ route('profile.switch-to-creator') }}">Switch to Audience</a> <!-- Link to switch to Kreator form -->
             <a href="https://docs.google.com/document/d/1-XAXTJ7fhj3vXKfGuunh95WCvWixjvcrbFLdBmFL0As/edit?usp=sharing" target="_blank">Help</a>
             <form action="{{ route('logout') }}" method="POST" class="logout-form">
                 @csrf

@@ -11,9 +11,6 @@
             background: linear-gradient(180deg, #022C99, #8BACFF);
             margin: 0;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
         .container {
             max-width: 1200px;
@@ -22,9 +19,6 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
         }
         .header {
             display: flex;
@@ -77,7 +71,7 @@
         }
         .category {
             margin-bottom: 40px;
-            flex: 1 1 48%; /* Adjust this value to change the width of the columns */
+            flex: 1 1 48%;
             box-sizing: border-box;
         }
         .category h2 {
@@ -130,9 +124,20 @@
             text-align: center;
         }
         .profile-picture {
-            width: 100%;
             border-radius: 50%;
             margin-bottom: 10px;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        .welcome-container {
+            max-width: 1200px;
+            margin: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -144,19 +149,19 @@
         <ul class="nav">
             <li>
                 <a href="{{ route('kreator.home') }}" class="active">
-                    <img src="{{ asset('assets/images/Home Icon.png') }}" alt="Home" width="24" height="24">
+                    <img src="assets/images/Home Icon.png" alt="Home Icon" width="24" height="24">
                     Home
                 </a>
             </li>
             <li>
                 <a href="{{ route('kreator.forum') }}">
-                    <img src="{{ asset('assets/images/Forum Icon.png') }}" alt="Forum" width="24" height="24">
+                    <img src="assets/images/Forum Icon.png" alt="Forum Icon" width="24" height="24">
                     Forum
                 </a>
             </li>
             <li>
                 <a href="{{ route('kreator.profile') }}">
-                    <img src="{{ asset('assets/images/Profile Icon.png') }}" alt="Profile" width="24" height="24">
+                    <img src="assets/images/Profile Icon.png" alt="Profile Icon" width="24" height="24">
                     Profile
                 </a>
             </li>
@@ -165,33 +170,36 @@
     <div class="main-content">
         <div class="profile-container">
             <img src="{{ $profileImage }}" alt="Profile Picture" class="profile-picture">
+            <h2>Creator Profile</h2>
             <p>Hello, {{ Auth::user()->name }}!</p>
             <p>Let's be the best consultant with us!</p>
         </div>
-        <div class="container">
-            <div class="container">
-                <h1>Welcome to your Kreator home page!</h1>
+        <div>
+            <div class="welcome-container">
+                <h2>Welcome to your Kreator home page!</h2>
                 <p>Here you can manage your content, view analytics, and more.</p>
             </div>
-            <div class="video-container">
-                <h2>Your Videos</h2>
-                @foreach($courses as $category => $categoryCourses)
-                <div class="category">
-                    <h2>{{ $category }}</h2>
-                    @foreach($categoryCourses as $course)
-                    <div class="course">
-                        <img src="data:image/jpeg;base64,{{ $course->thumbnail_base64 }}" alt="{{ $course->videoTitle }}">
-                        <div class="course-details">
-                            <h3>{{ $course->videoTitle }}</h3>
-                            <div class="price">Rp{{ number_format($course->cleanPrice, 0, ',', '.') }}</div>
-                            <a href="{{ route('course.description', ['course' => $course->videoTitle]) }}">
-                                <button type="button">View Details</button>
-                            </a>
+            <div class="container">
+                <div class="video-container">
+                    <h2>Your Videos</h2>
+                    @foreach($courses as $category => $categoryCourses)
+                    <div class="category">
+                        <h2>{{ $category }}</h2>
+                        @foreach($categoryCourses as $course)
+                        <div class="course">
+                            <img src="data:image/jpeg;base64,{{ $course->thumbnail_base64 }}" alt="{{ $course->videoTitle }}">
+                            <div class="course-details">
+                                <h3>{{ $course->videoTitle }}</h3>
+                                <div class="price">Rp{{ number_format($course->cleanPrice, 0, ',', '.') }}</div>
+                                <a href="{{ route('course.description', ['course' => $course->videoTitle]) }}">
+                                    <button type="button">View Details</button>
+                                </a>
+                            </div>
                         </div>
+                        @endforeach
                     </div>
                     @endforeach
                 </div>
-                @endforeach
             </div>
         </div>
     </div>

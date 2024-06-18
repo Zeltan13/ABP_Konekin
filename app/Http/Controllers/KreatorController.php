@@ -22,14 +22,14 @@ class KreatorController extends Controller
         }
         
         // Fetch the corresponding Kreator record for the authenticated user
-        $kreator = Kreator::where('username', $user->name)->first();
+        $audiens = Audiens::where('username', $user->name)->first();
 
         // Set a default profile image
         $profileImage = 'https://via.placeholder.com/100';
         
         // If a Kreator record exists and it has a profile picture, use it
-        if ($kreator && $kreator->profilePict) {
-            $profileImage = 'data:image/jpeg;base64,' . base64_encode($kreator->profilePict);
+        if ($audiens && $audiens->profilePict) {
+            $profileImage = 'data:image/jpeg;base64,' . base64_encode($audiens->profilePict);
         }
 
         // Fetch the videos related to the kreator
@@ -108,10 +108,10 @@ class KreatorController extends Controller
             ],
         ];
         $user = Auth::user();
-        $kreator = Audiens::where('username', $user->name)->first();
+        $audiens = Audiens::where('username', $user->name)->first();
         $profileImage = 'https://via.placeholder.com/100';
-        if ($kreator && $kreator->profilePict) {
-            $profileImage = 'data:image/jpeg;base64,' . base64_encode($kreator->profilePict);
+        if ($audiens && $audiens->profilePict) {
+            $profileImage = 'data:image/jpeg;base64,' . base64_encode($audiens->profilePict);
         }
 
         return view('kreator-forum', compact('forums', 'profileImage'));
