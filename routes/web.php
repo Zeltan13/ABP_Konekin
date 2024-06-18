@@ -33,7 +33,8 @@ Route::middleware('auth')->group(function() {
     Route::post('/profile/switch-to-creator', [ProfileController::class, 'switchToCreator'])->name('profile.switch-to-creator');
 
     //kreator things
-    
+    Route::get('/kreator/create', [KreatorController::class, 'create'])->name('kreator.create');
+    Route::post('/kreator/store', [KreatorController::class, 'store'])->name('kreator.store');
 });
 
 Route::prefix('course')->group(function() {

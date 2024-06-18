@@ -127,4 +127,32 @@ class KreatorController extends Controller
 
         return view('kreator-profile', compact('user', 'profileImage'));
     }
+
+    public function create()
+    {
+        return view('kreator-create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'harga' => 'required|numeric',
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'video_link' => 'required|url',
+        ]);
+
+        $thumbnail = $request->file('thumbnail')->store('thumbnails', 'public');
+
+        Kreator::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'harga' => $request->harga,
+            'thumbnail' => $thumbnail,
+            'video_link' => $request->video_link,
+        ]);
+
+        return redirect()->route('kreator.home')->with('success', 'Video uploaded successfully.');
+    }
 }

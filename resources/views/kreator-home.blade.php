@@ -139,6 +139,26 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
         }
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .floating-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -203,8 +223,8 @@
             </div>
         </div>
     </div>
-    <button class="upload-btn" onclick="window.location.href='{{ route('video.upload') }}'">
-        <img src="https://via.placeholder.com/30" alt="Upload Icon">
+    <button class="floating-button" onclick="window.location.href='{{ route('kreator.create') }}'">
+        +
     </button>
 </body>
 </html>
