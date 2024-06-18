@@ -119,7 +119,7 @@
         </div>
         <ul class="nav">
             <li>
-                <a href="{{ route('home') }}" class="active">
+                <a href="{{ route('home') }}">
                     <img src="{{ asset('assets/images/Home Icon.png') }}" alt="Home" width="24" height="24">
                     Home
                 </a>
@@ -131,7 +131,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('profile') }}">
+                <a href="{{ route('profile') }}" class='active'>
                     <img src="{{ asset('assets/images/Profile Icon.png') }}" alt="Profile" width="24" height="24">
                     Profile
                 </a>
