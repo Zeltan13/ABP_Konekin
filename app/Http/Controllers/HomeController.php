@@ -9,20 +9,18 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // Fetching videos and grouping by categories
         $videos = Video::all()->groupBy('category');
-
-        $courses = [];
+        
+        // Encode the videoThumbnail as base64
         foreach ($videos as $category => $categoryVideos) {
-            $courses[$category] = $categoryVideos->map(function ($video) {
-                return [
-                    'title' => $video->videoTitle,
-                    'price' => $video->videoPrice,
-                    'image' => $video->videoThumbnail, // Assuming this stores the image path
-                ];
-            });
+            foreach ($categoryVideos as $video) {
+                // Strip the "Rp" and commas from the price and convert to float
+                $cleanPrice = str_replace(['Rp', '.'], '', $video->videoPrice);
+                $video->cleanPrice = floatval($cleanPrice);
+                $video->thumbnail_base64 = base64_encode($video->videoThumbnail);
+            }
         }
 
-        return view('home', compact('courses'));
+        return view('home', ['courses' => $videos]);
     }
 }

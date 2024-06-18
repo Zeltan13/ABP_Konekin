@@ -37,3 +37,5 @@ Route::get('/course/{course}/watch', [CourseController::class, 'watch'])->name('
 
 // Route::get('/forum', [ForumController::class, 'index'])->name('forum');
 Route::get('/watch/{course}', [HomeController::class, 'watch'])->name('watch');
+Route::get('/thumbnail/{id}', [VideoController::class, 'thumbnail'])->name('thumbnail');
+

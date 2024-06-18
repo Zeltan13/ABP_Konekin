@@ -167,11 +167,11 @@
                 <h2>{{ $category }}</h2>
                 @foreach($categoryCourses as $course)
                 <div class="course">
-                    <img src="{{ asset($course['image']) }}" alt="{{ $course['title'] }}">
+                    <img src="data:image/jpeg;base64,{{ $course->thumbnail_base64 }}" alt="{{ $course->videoTitle }}">
                     <div class="course-details">
-                        <h3>{{ $course['title'] }}</h3>
-                        <div class="price">Rp{{ number_format($course['price'], 0, ',', '.') }}</div>
-                        <form action="{{ route('course.buy', ['course' => $course['title']]) }}" method="POST">
+                        <h3>{{ $course->videoTitle }}</h3>
+                        <div class="price">Rp{{ number_format($course->cleanPrice, 0, ',', '.') }}</div>
+                        <form action="{{ route('course.buy', ['course' => $course->videoTitle]) }}" method="POST">
                             @csrf
                             <button type="submit">Buy Now</button>
                         </form>
