@@ -76,8 +76,8 @@
         }
         .profile-header img {
             border-radius: 50%;
-            width: 100px;
-            height: 100px;
+            width: 250px;
+            height: 250px;
             object-fit: cover; 
         }
         .profile-header h2 {

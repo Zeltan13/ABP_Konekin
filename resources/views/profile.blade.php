@@ -76,8 +76,8 @@
         }
         .profile-header img {
             border-radius: 50%;
-            width: 100px;
-            height: 100px;
+            width: 250px;
+            height: 250px;
             object-fit: cover; /* Ensure the image fills the circle without stretching */
         }
         .profile-header h2 {
