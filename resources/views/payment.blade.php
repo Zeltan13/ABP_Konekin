@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <title>Payment for {{ $course->videoTitle }}</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(180deg, #022C99, #8BACFF);
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .container {
             max-width: 600px;
-            margin: 0 auto;
+            margin: 20px;
             background-color: white;
             padding: 20px;
             border-radius: 8px;
@@ -20,13 +26,17 @@
         }
         .payment-method {
             margin: 20px 0;
+            font-family: 'Lato', sans-serif;
         }
         .payment-method label {
             display: block;
             margin-bottom: 10px;
+            text-align: left; /* Align labels to the left */
+            font-family: 'Lato', sans-serif;
         }
         .payment-method input[type="radio"] {
             margin-right: 10px;
+            font-family: 'Lato', sans-serif;
         }
         .payment-method button {
             padding: 10px 20px;
@@ -35,15 +45,37 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-family: 'Lato', sans-serif;
         }
         .checkbox-container {
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 20px 0;
+            text-align: left; /* Align checkbox to the left */
+            font-family: 'Lato', sans-serif;
         }
         .checkbox-container input[type="checkbox"] {
             margin-right: 10px;
+            font-family: 'Lato', sans-serif;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-button {
+            background-color: #dc3545;
+            border-radius: 5px;
+        }
+        button:hover{
+            background-color: #0056b3;
+        }
+        .back-button:hover{
+            background-color: #a91b0d;
         }
     </style>
 </head>
@@ -90,6 +122,9 @@
                     <label for="have-paid">I have paid</label>
                 </div>
                 <button type="submit">Continue Payment</button>
+                <a href="{{ route('course.description', ['course' => $course->videoTitle]) }}">
+                    <button type="button" class="back-button">Back</button>
+                </a>
             </form>
         </div>
     </div>
