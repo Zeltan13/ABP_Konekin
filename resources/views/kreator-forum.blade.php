@@ -157,6 +157,7 @@
     <div class="main-content">
         <div class="profile-container">
             <img src="{{ $profileImage }}" alt="Profile Picture" class="profile-picture">
+            <h2>Creator Profile</h2>
             <p>Hello, {{ Auth::user()->name }}!</p>
             <p>Let's be the best consultant with us!</p>
         </div>

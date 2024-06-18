@@ -149,7 +149,7 @@
         <div class="settings">
             <a href="{{ route('profile.edit') }}">Edit Profile</a>
             <a href="{{ route('profile.change-password') }}">Change Password</a>
-            <a href="{{ route('profile.switch-to-creator') }}">Switch to Audience</a> <!-- Link to switch to Kreator form -->
+            <a href="{{ route('home') }}">Switch to Audience</a> 
             <a href="https://docs.google.com/document/d/1-XAXTJ7fhj3vXKfGuunh95WCvWixjvcrbFLdBmFL0As/edit?usp=sharing" target="_blank">Help</a>
             <form action="{{ route('logout') }}" method="POST" class="logout-form">
                 @csrf
