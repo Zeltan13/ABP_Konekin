@@ -94,6 +94,13 @@
             padding: 0;
             list-style-type: none;
         }
+        .success-message {
+            background-color: #ddffdd;
+            border-left: 6px solid #4CAF50;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -106,6 +113,18 @@
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
+            </div>
+        @endif
+        @if (session('error'))
+            <div class="error-messages">
+                <ul>
+                    <li>{{ session('error') }}</li>
+                </ul>
+            </div>
+        @endif
+        @if (session('success'))
+            <div class="success-message">
+                {{ session('success') }}
             </div>
         @endif
         <form action="{{ route('login') }}" method="POST">

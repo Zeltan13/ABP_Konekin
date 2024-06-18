@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 
-
 class AuthController extends Controller
 {
     public function showLoginForm()
@@ -20,18 +19,18 @@ class AuthController extends Controller
         $email = $request->email;
         $password = $request->password;
 
-        $user = User::where('email',$email)->first();
+        $user = User::where('email', $email)->first();
         if (!$user) {
             return back()->with('error', 'Email atau Password salah');
         }
         $isPlainTextPassword = !preg_match('/^\$2[ayb]\$.{56}$/', $user->password);
         if ($isPlainTextPassword){
-            if($password ===$user->password){
+            if ($password === $user->password) {
                 Auth::login($user);
                 return redirect('/home')->with('success', 'Login Berhasil');
             }
-        }else{
-            if(Hash::check($password, $user->password)){
+        } else {
+            if (Hash::check($password, $user->password)) {
                 Auth::login($user);
                 return redirect('/home')->with('success', 'Login Berhasil');
             }
@@ -45,7 +44,10 @@ class AuthController extends Controller
         Session::flush();
         return redirect('/');
     }
-    // public function loginPost(Request $request)
+}
+
+
+// public function loginPost(Request $request)
     // {
     //     $nip = $request->nip;
     //     $password = $request->password;
@@ -101,6 +103,3 @@ class AuthController extends Controller
     //     Session::flush();
     //     return redirect('/')->with('success', 'Logout Berhasil');
     // }
-
-    
-}
