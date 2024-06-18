@@ -87,32 +87,39 @@
                 @csrf
                 <div class="payment-method">
                     <label>
+                        <img src="{{ asset('assets\images\logo_mandiri.png') }}" alt="Mandiri" width="24" height="24">
                         <input type="radio" name="payment_method" value="mandiri" required>
                         Bank Mandiri: 102000998086
                     </label>
                     <label>
+                        <img src="{{ asset('assets\images\logo_bca.png') }}" alt="BCA" width="24" height="24">
                         <input type="radio" name="payment_method" value="bca" required>
                         Bank BCA: 102000998086
                     </label>
                     <label>
+                        <img src="{{ asset('assets\images\logo_bsi.png') }}" alt="BSI" width="24" height="24">
                         <input type="radio" name="payment_method" value="bsi" required>
                         Bank BSI: 102000998086
                     </label>
                     <label>
+                        <img src="{{ asset('assets\images\logo_bni.png') }}" alt="BNI" width="24" height="24">
                         <input type="radio" name="payment_method" value="bni" required>
                         Bank BNI: 102000998086
                     </label>
                 </div>
                 <div class="payment-method">
                     <label>
+                        <img src="{{ asset('assets\images\logo_dana.png') }}" alt="Dana" width="24" height="24">
                         <input type="radio" name="payment_method" value="dana" required>
                         Dana: 081398844808
                     </label>
                     <label>
+                        <img src="{{ asset('assets\images\logo_ovo.png') }}" alt="OVO" width="24" height="24">
                         <input type="radio" name="payment_method" value="ovo" required>
                         OVO: 081398844808
                     </label>
                     <label>
+                        <img src="{{ asset('assets\images\logo_gopay.png') }}" alt="Gopay" width="24" height="24">
                         <input type="radio" name="payment_method" value="gopay" required>
                         Gopay: 081398844808
                     </label>
