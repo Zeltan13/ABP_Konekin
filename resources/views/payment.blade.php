@@ -82,6 +82,8 @@
         <div class="payment-method">
             <form action="{{ route('course.pay', ['course' => $course->videoTitle]) }}" method="POST">
                 @csrf
+                <input type="hidden" name="username" value="{{ Auth::user()->name }}">
+                
                 <div class="payment-method">
                     <div class="payment-option" data-value="mandiri">
                         <img src="{{ asset('assets/images/logo_mandiri.png') }}" alt="Mandiri" width="24" height="24">
@@ -135,6 +137,7 @@
                         </label>
                     </div>
                 </div>
+                
                 <div class="checkbox-container">
                     <input type="checkbox" id="have-paid" name="have_paid" required>
                     <label for="have-paid">I have paid</label>
