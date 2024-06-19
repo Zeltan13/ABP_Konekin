@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function() {
 
     Route::get('/profile/switch-to-creator', [ProfileController::class, 'showSwitchToCreatorForm'])->name('profile.switch-to-creator');
     Route::post('/profile/switch-to-creator', [ProfileController::class, 'switchToCreator'])->name('profile.switch-to-creator');
+    Route::get('/videos-purchased', [VideoController::class, 'purchased'])->name('videos.purchased');
     
     // Kreator routes
     Route::prefix('kreator')->group(function() {

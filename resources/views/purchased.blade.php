@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Videos Purchased</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -11,6 +11,20 @@
             background: linear-gradient(180deg, #022C99, #8BACFF);
             margin: 0;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
         .header {
             display: flex;
@@ -61,66 +75,65 @@
         .nav a.active {
             color: #007bff;
         }
-        .container {
-            max-width: 750px;
-            margin: 20px auto;
-            background-color: white;
+        .category {
+            margin-bottom: 40px;
+            flex: 1 1 48%; /* Adjust this value to change the width of the columns */
+            box-sizing: border-box;
+        }
+        .category h2 {
+            margin-bottom: 20px;
+        }
+        .course {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .course img {
+            width: 150px;
+            height: 100px;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+        .course-details {
+            flex: 1;
+        }
+        .course-details h3 {
+            margin: 0 0 10px 0;
+        }
+        .course-details .price {
+            color: green;
+            margin-bottom: 10px;
+        }
+        .course-details button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Lato', Arial, sans-serif;
+        }
+        .main-content {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .profile-container {
+            width: 200px;
+            height: 320px;
             padding: 20px;
+            margin-right: 10px;
+            margin-left: 10px;
+            margin-top: 20px;
+            background-color: white;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
-        .profile-header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .profile-header img {
-            border-radius: 50%;
-            width: 200px;
-            height: 200px;
-            object-fit: cover; /* Ensure the image fills the circle without stretching */
-        }
-        .profile-header h2 {
-            margin-top: 10px;
-            color: #333;
-        }
-        .settings {
-            text-align: left;
-            margin-top: 20px;
-            font-size: 16px;
-        }
-        .settings a {
-            display: block;
-            padding: 15px;
-            border-bottom: 1px solid #ddd;
-            text-decoration: none;
-            color: #000;
-        }
-        .settings a:last-child {
-            border-bottom: none;
-        }
-        .settings a:hover {
-            background-color: #f0f0f0;
-            border-radius:10px;
-        }
-        .logout-form {
-            display: inline;
-            
-        }
-        .logout-form button {
-            font-family: 'Lato', Arial, sans-serif;
-            background: none;
-            border: none;
-            color: inherit;
-            cursor: pointer;
-            padding: 15px;
+        .profile-picture {
             width: 100%;
-            text-align: left;
-            font-size: 16px;
-        }
-        .logout-form button:hover {
-            background-color: #f0f0f0;
-            border-radius:10px;
+            border-radius: 50%;
+            margin-bottom: 10px;
         }
         .logo-link {
             text-decoration: none; /* Remove underline from link */
@@ -151,13 +164,13 @@
         </a>
         <ul class="nav">
             <li>
-                <a href="{{ route('home') }}" class="active">
+                <a href="{{ route('home') }}">
                     <img src="{{ asset('assets/images/Home Icon.png') }}" alt="Home" width="24" height="24">
                     Home
                 </a>
             </li>
             <li>
-                <a href="{{ route('videos.purchased') }}">
+                <a href="{{ route('videos.purchased') }}" class="active">
                     <img src="{{ asset('assets/images/Purchased Icon.png') }}" alt="Purchased" width="24" height="24">
                     Videos Purchased
                 </a>
@@ -176,20 +189,19 @@
             </li>
         </ul>
     </div>
-    <div class="container">
-        <div class="profile-header">
-            <img src="{{ $profileImage }}" alt="Profile Picture">
-            <h2>{{ Auth::user()->name }}</h2>
-        </div>
-        <div class="settings">
-            <a href="{{ route('profile.edit') }}">Edit Profile</a>
-            <a href="{{ route('profile.change-password') }}">Change Password</a>
-            <a href="{{ route('profile.switch-to-creator') }}">Switch to Creator</a> <!-- Link to switch to Kreator form -->
-            <a href="https://docs.google.com/document/d/1-XAXTJ7fhj3vXKfGuunh95WCvWixjvcrbFLdBmFL0As/edit?usp=sharing" target="_blank">Help</a>
-            <form action="{{ route('logout') }}" method="POST" class="logout-form">
-                @csrf
-                <button type="submit">Logout</button>
-            </form>
+    <div class="main-content">
+        <div class="container">
+            @foreach($purchasedVideos as $video)
+            <div class="course">
+                <img src="data:image/jpeg;base64,{{ $video->thumbnail_base64 }}" alt="{{ $video->videoTitle }}">
+                <div class="course-details">
+                    <h3>{{ $video->videoTitle }}</h3>
+                    <a href="{{ route('watch', ['course' => $video->videoTitle]) }}">
+                        <button type="button">Watch Now</button>
+                    </a>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
 </body>

@@ -153,13 +153,19 @@
         </a>
         <ul class="nav">
             <li>
-                <a href="{{ route('home') }}">
+                <a href="{{ route('home') }}" class="active">
                     <img src="{{ asset('assets/images/Home Icon.png') }}" alt="Home" width="24" height="24">
                     Home
                 </a>
             </li>
             <li>
-                <a href="{{ route('forum') }}" class="active">
+                <a href="{{ route('videos.purchased') }}">
+                    <img src="{{ asset('assets/images/Purchased Icon.png') }}" alt="Purchased" width="24" height="24">
+                    Videos Purchased
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('forum') }}">
                     <img src="{{ asset('assets/images/Forum Icon.png') }}" alt="Forum" width="24" height="24">
                     Forum
                 </a>

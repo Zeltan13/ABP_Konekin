@@ -138,7 +138,6 @@
         .logo-link {
             text-decoration: none; /* Remove underline from link */
         }
-
         .logo-link .logo {
             display: flex;
             align-items: center;
@@ -146,12 +145,16 @@
             border-radius: 10px;
             padding: 10px 20px;
         }
-
         .logo-link .logo h1 {
             color: white;
             margin: 0;
             font-size: 24px;
             font-weight: 700;
+        }
+        .no-videos {
+            font-size: 18px;
+            color: red;
+            text-align: center;
         }
     </style>
 </head>
@@ -167,6 +170,12 @@
                 <a href="{{ route('home') }}" class="active">
                     <img src="{{ asset('assets/images/Home Icon.png') }}" alt="Home" width="24" height="24">
                     Home
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('videos.purchased') }}">
+                    <img src="{{ asset('assets/images/Purchased Icon.png') }}" alt="Purchased" width="24" height="24">
+                    Videos Purchased
                 </a>
             </li>
             <li>
@@ -193,6 +202,9 @@
             @foreach($courses as $category => $categoryCourses)
             <div class="category">
                 <h2>{{ $category }}</h2>
+                @if($categoryCourses->isEmpty())
+                <p class="no-videos">No More Videos Available</p>
+                @else
                 @foreach($categoryCourses as $course)
                 <div class="course">
                     <img src="data:image/jpeg;base64,{{ $course->thumbnail_base64 }}" alt="{{ $course->videoTitle }}">
@@ -205,6 +217,7 @@
                     </div>
                 </div>
                 @endforeach
+                @endif
             </div>
             @endforeach
         </div>
