@@ -16,7 +16,8 @@
             align-items: center;
         }
         .container {
-            max-width: 800px;
+            max-width: 1200px;
+            width:100%;
             margin: 20px;
             background-color: white;
             padding: 20px;
@@ -72,6 +73,9 @@
         .nav a.active {
             color: #007bff;
         }
+        .nav a:hover {
+            color: #007bff; /* Change color when hovered */
+        }
         .form-group {
             margin-bottom: 15px;
         }
@@ -81,10 +85,11 @@
         }
         .form-group input,
         .form-group textarea {
-            width: 100%;
+            width: 98%;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
+
         }
         .form-group input[readonly] {
             background-color: #f0f0f0; /* Optional: provide a different background color for readonly fields */
@@ -92,10 +97,25 @@
         .form-group button {
             padding: 10px 20px;
             background-color: #007bff;
+            font-family: 'Lato', Arial, sans-serif;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+        }
+        .back-button {
+            padding: 8px 20px;
+            background-color: #f44336;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            font-family: 'Lato', Arial, sans-serif;
+            display: inline-block;
+            font-size: 16px; /* Setting font size to 12px */
+        }
+        .back-button:hover {
+            background-color: #d32f2f;
         }
     </style>
 </head>
@@ -147,6 +167,7 @@
             </div>
             <div class="form-group">
                 <button type="submit">Update Video</button>
+                <a href="{{ route('kreator.home') }}" class="back-button">Cancel</a>
             </div>
         </form>
     </div>

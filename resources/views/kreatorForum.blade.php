@@ -66,12 +66,16 @@
             display: flex;
             align-items: center;
             color: #000;
+            transition: color 0.3s;
         }
         .nav a img {
             margin-right: 8px;
         }
         .nav a.active {
             color: #007bff;
+        }
+        .nav a:hover {
+            color: #007bff; /* Change color when hovered */
         }
         .main-content {
             display: flex;
@@ -123,6 +127,9 @@
         }
         .forum-category .details h3 {
             margin: 0;
+            color: black; /* Change forum name color to black */
+            font-family: 'Lato', Arial, sans-serif; /* Change forum name font to Lato */
+            text-decoration: none; /* Remove underline */
         }
         .logo-link {
             text-decoration: none; /* Remove underline from link */
@@ -183,7 +190,7 @@
             <div class="forum-categories">
                 @foreach ($forums as $forum)
                     <div class="forum-category">
-                        <a href="{{ $forum['link'] }}" target="_blank">
+                        <a href="{{ $forum['link'] }}" target="_blank" style="display: flex; align-items: center; text-decoration: none;">
                             <img src="{{ asset($forum['image']) }}" alt="{{ $forum['name'] }}">
                             <div class="details">
                                 <h3>{{ $forum['name'] }}</h3>

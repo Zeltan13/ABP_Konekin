@@ -7,7 +7,7 @@
     <title>{{ $course->videoTitle }}</title>
     <style>
         body {
-            font-family: 'Lato' sans-serif;
+            font-family: 'Lato', sans-serif;
             background: linear-gradient(180deg, #022C99, #8BACFF);
             margin: 0;
             min-height: 100vh;
@@ -32,6 +32,11 @@
         .course-details {
             text-align: left;
         }
+        .course-details h2,
+        .course-details p,
+        .price {
+            font-family: 'Lato', sans-serif;
+        }
         .price {
             color: green;
             font-size: 24px;
@@ -48,18 +53,19 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-family: 'Lato', sans-serif;
         }
         .back-button {
             background-color: #dc3545;
             border-radius: 5px;
+            font-family: 'Lato', sans-serif;
         }
-        button:hover{
+        button:hover {
             background-color: #0056b3; /* Darker shade of blue */
         }
-        .back-button:hover{
+        .back-button:hover {
             background-color: #a91b0d;
         }
-
     </style>
 </head>
 <body>
@@ -75,8 +81,7 @@
                         <button type="button">Proceed to Payment</button>
                     </a>
                     <a href="{{ route('home') }}">
-                    <button type="button" class="back-button">Back</button>
-                    </a>
+                        <button type="button" class="back-button">Back</button>
                     </a>
                 </div>
             </div>

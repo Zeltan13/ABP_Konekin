@@ -69,6 +69,9 @@
         .nav a.active {
             color: #007bff;
         }
+        .nav a:hover {
+            color: #007bff; /* Change color when hovered */
+        }
         .category {
             margin-bottom: 40px;
             flex: 1 1 48%;

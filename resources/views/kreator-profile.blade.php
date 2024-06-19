@@ -61,6 +61,9 @@
         .nav a.active {
             color: #007bff;
         }
+        .nav a:hover {
+            color: #007bff; /* Change color when hovered */
+        }
         .container {
             max-width: 750px;
             margin: 20px auto;

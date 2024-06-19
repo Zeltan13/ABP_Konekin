@@ -66,12 +66,16 @@
             display: flex;
             align-items: center;
             color: #000;
+            transition: color 0.3s;
         }
         .nav a img {
             margin-right: 8px;
         }
         .nav a.active {
             color: #007bff;
+        }
+        .nav a:hover {
+            color: #007bff; /* Change color when hovered */
         }
         .main-content {
             display: flex;
@@ -80,10 +84,10 @@
         }
         .profile-container {
             width: 200px;
-            height:320px;
+            height: 320px;
             padding: 20px;
             margin-right: 10px;
-            margin-left: 10px; 
+            margin-left: 10px;
             margin-top: 20px;
             background-color: white;
             border-radius: 8px;
@@ -91,7 +95,7 @@
             text-align: center;
         }
         .profile-picture {
-            width: 100%; 
+            width: 100%;
             border-radius: 50%;
             margin-bottom: 10px;
         }
@@ -123,6 +127,9 @@
         }
         .forum-category .details h3 {
             margin: 0;
+            color: black; /* Change forum name color to black */
+            font-family: 'Lato', Arial, sans-serif; /* Change forum name font to Lato */
+            text-decoration: none; /* Remove underline */
         }
         .logo-link {
             text-decoration: none; /* Remove underline from link */
@@ -153,7 +160,7 @@
         </a>
         <ul class="nav">
             <li>
-                <a href="{{ route('home') }}" class="active">
+                <a href="{{ route('home') }}">
                     <img src="{{ asset('assets/images/Home Icon.png') }}" alt="Home" width="24" height="24">
                     Home
                 </a>
@@ -165,7 +172,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('forum') }}">
+                <a href="{{ route('forum') }}" class="active">
                     <img src="{{ asset('assets/images/Forum Icon.png') }}" alt="Forum" width="24" height="24">
                     Forum
                 </a>
@@ -189,7 +196,7 @@
             <div class="forum-categories">
                 @foreach($forums as $forum)
                     <div class="forum-category">
-                        <a href="{{ $forum['link'] }}" target="_blank">
+                        <a href="{{ $forum['link'] }}" target="_blank" style="display: flex; align-items: center; text-decoration: none;">
                             <img src="{{ $forum['image'] }}" alt="{{ $forum['name'] }}">
                             <div class="details">
                                 <h3>{{ $forum['name'] }}</h3>
