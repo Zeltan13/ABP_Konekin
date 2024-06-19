@@ -17,4 +17,9 @@ class Audiens extends Model
         'email',
         'profilePict'
     ];
+
+    public function transaksi()
+    {
+        return $this->hasMany(Transaksi::class, 'idAudiens');
+    }
 }

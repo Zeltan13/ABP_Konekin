@@ -19,7 +19,7 @@ class Transaksi extends Model
         'tglTransaksi',
         'status',
     ];
-
+    
     // Define relationships
     public function kreator()
     {
@@ -28,7 +28,7 @@ class Transaksi extends Model
 
     public function audiens()
     {
-        return $this->belongsTo(User::class, 'idAudiens');
+        return $this->belongsTo(Audiens::class, 'idAudiens');
     }
 
     public function video()

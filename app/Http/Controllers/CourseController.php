@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Video;
+use App\Models\Transaksi;
+use App\Models\Audiens;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
@@ -21,9 +24,9 @@ class CourseController extends Controller
         ]);
     }
 
-    public function redirectToPayment(Request $request, $course)
+    public function redirectToPayment(Request $request, $courseTitle)
     {
-        return redirect()->route('payment', ['course' => $course]);
+        return redirect()->route('payment', ['course' => $courseTitle]);
     }
 
     public function payment($courseTitle)
@@ -38,10 +41,36 @@ class CourseController extends Controller
         ]);
     }
 
-    public function pay(Request $request, $courseTitle)
+    public function pay(Request $request, $videoTitle)
     {
-        return redirect()->route('success', ['course' => $courseTitle]);
+        $audiens = Auth::user();
+        
+        // Check if audiens exists
+        if (!$audiens) {
+            return redirect()->back()->with('error', 'Audiens not found.');
+        }
+
+        $video = Video::where('videoTitle', $videoTitle)->first();
+
+        // Check if video exists
+        if (!$video) {
+            return redirect()->back()->with('error', 'Video not found.');
+        }
+
+        $status = 1; // Assuming 1 means 'paid'
+
+        $transaksi = Transaksi::create([
+            'idKreator' => $video->idKreator,
+            'idAudiens' => $audiens->id,
+            'videoTitle' => $video->videoTitle,
+            'videoPrice' => $video->videoPrice,
+            'tglTransaksi' => now()->toDateString(),
+            'status' => $status,
+        ]);
+
+        return redirect()->route('success', ['course' => $videoTitle]);
     }
+
 
     public function success($courseTitle)
     {
@@ -78,6 +107,4 @@ class CourseController extends Controller
 
         return null;
     }
-
-
 }
