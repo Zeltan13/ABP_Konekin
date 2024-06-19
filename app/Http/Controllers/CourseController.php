@@ -114,7 +114,7 @@ class CourseController extends Controller
             $idAudiens = 7;
         } elseif ($username === 'Oktovivian') {
             $idAudiens = 1;
-        } elseif ($username === 'Fathan Askars') {
+        } elseif ($username === 'Fathan Askar') {
             $idAudiens = 4;
         }
 
