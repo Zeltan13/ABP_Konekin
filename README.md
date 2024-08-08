@@ -1,6 +1,11 @@
 # KonekIn
 
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
+![PHP](https://img.shields.io/badge/PHP-8.x-brightgreen.svg)
+![MySQL](https://img.shields.io/badge/MySQL-8.x-blue.svg)
+![CSS](https://img.shields.io/badge/CSS-3.0-blue.svg)
+![HTML](https://img.shields.io/badge/HTML-5-red.svg)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow.svg)
 
 ## Introduction
 
