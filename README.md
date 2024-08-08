@@ -35,7 +35,7 @@ To set up KonekIn locally, follow these steps:
 2. **Install Dependencies**:
    ```bash
    composer install
-   npm install
+   
 3. **Configure Environment Variables**:
    - Copy the .env.example file to .env.
    - Update database credentials and other configurations as needed.
