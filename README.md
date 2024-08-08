@@ -11,8 +11,6 @@ KonekIn is a web application designed to bridge the gap between professionals in
 - **Professional Profiles**: Users can create detailed profiles showcasing their expertise, experience, and projects.
 - **Audience Interaction**: Audiences can follow professionals, ask questions, and participate in discussions.
 - **Content Sharing**: Professionals can share articles, videos, and resources with their audience.
-- **Search and Discovery**: Advanced search features allow users to find professionals by field, expertise, or location.
-- **Real-time Notifications**: Users receive updates about new content, interactions, and messages.
 
 ## Technologies Used
 
