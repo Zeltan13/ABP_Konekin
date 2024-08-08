@@ -27,18 +27,20 @@ To set up KonekIn locally, follow these steps:
 
 1. **Clone the Repository**:
    ```bash
-   - git clone https://github.com/yourusername/konekin.git
-   - cd konekin
+   git clone https://github.com/yourusername/konekin.git
+   cd konekin
 2. **Install Dependencies**:
    ```bash
-   - composer install
-   - npm install
+   composer install
+   npm install
 3. **Configure Environment Variables**:
    - Copy the .env.example file to .env.
    - Update database credentials and other configurations as needed.
 4. **Run Migrations**:
-   - php artisan migrate
+    ```bash
+    php artisan migrate
 5. **Start the Development Server**:
-   - php artisan serve
+    ```bash
+    php artisan serve
 6. **Access the Application**:
    - Open your browser and go to http://localhost:8000.
